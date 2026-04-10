@@ -54,6 +54,12 @@
               "tools/overview",
               "tools/spreadsheet-tools",
               "tools/python",
+              "tools/deep-research",
+              "tools/web-scraping",
+              "tools/data-finder",
+              "tools/machine-learning",
+              "tools/text-tools",
+              "tools/image-generation",
               "tools/library"
             ]
           },

@@ -1,0 +1,61 @@
+---
+title: Public dataset finder
+description: Find and import publicly available datasets directly into your Sourcetable spreadsheet.
+---
+
+The data finder tool searches the web for publicly available datasets matching your description and imports them directly into your spreadsheet.
+
+## How it works
+
+Select **Public Dataset** mode from the AI chat, or just ask:
+
+- "Find a dataset of US census data by zip code"
+- "Get historical S&P 500 data for the last 20 years"
+- "Find a public dataset of global CO2 emissions by country"
+- "Import World Bank GDP data for all countries"
+
+The AI uses the `data_finder` tool to locate relevant public datasets, download them, and structure them into your spreadsheet.
+
+## Data sources
+
+The data finder searches across public data repositories including:
+
+- Government open data portals (data.gov, EU Open Data, etc.)
+- Academic and research datasets
+- Financial data APIs
+- International organizations (World Bank, UN, WHO, IMF)
+- Open source dataset collections
+- Public APIs with freely available data
+
+## Example datasets
+
+| Category | Examples |
+|---|---|
+| **Demographics** | Census data, population by region, age distribution |
+| **Economics** | GDP, inflation, unemployment, trade data |
+| **Finance** | Stock prices, exchange rates, commodity prices |
+| **Health** | Disease statistics, hospital data, vaccination rates |
+| **Climate** | Temperature records, emissions data, weather patterns |
+| **Education** | School performance, enrollment data, literacy rates |
+| **Sports** | Player statistics, team records, game results |
+| **Technology** | GitHub stats, programming language trends, internet usage |
+
+## Workflow
+
+<Steps>
+  <Step title="Describe the data you need">
+    Be specific about the topic, geographic scope, time period, and granularity.
+  </Step>
+  <Step title="AI finds and imports">
+    The data finder locates a matching dataset and imports it into your spreadsheet.
+  </Step>
+  <Step title="Analyze">
+    Use AI analysis, charts, pivot tables, or formulas to explore the data.
+  </Step>
+</Steps>
+
+## Tips
+
+- **Be specific** — "US median household income by state for 2020-2024" gets better results than "income data"
+- **Specify format** — "as a table with columns for country, year, and GDP" helps the AI structure the output
+- **Combine datasets** — import multiple datasets and ask the AI to merge them (e.g., GDP + population to calculate per-capita GDP)
