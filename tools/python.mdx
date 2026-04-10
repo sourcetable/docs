@@ -1,0 +1,71 @@
+---
+title: Python and code execution
+description: Sourcetable's AI can execute Python, SQL, and MCP code to process your data.
+---
+
+Sourcetable's AI runs Python code under the hood to perform complex data transformations, statistical analysis, and visualizations. You don't need to write Python yourself — the AI generates and executes it based on your natural language instructions.
+
+## How it works
+
+When you ask the AI to perform an operation that benefits from code execution, it:
+
+1. Generates Python code tailored to your request
+2. Executes it against your spreadsheet data
+3. Returns the results (tables, charts, statistics, or transformed data)
+4. Optionally shows you the code it ran
+
+## Available Python libraries
+
+The AI has access to a comprehensive set of data science and analysis libraries:
+
+### Data manipulation
+- **pandas** — dataframes, groupby, merge, pivot, filtering
+- **NumPy** — numerical arrays, linear algebra, random sampling
+
+### Statistical analysis
+- **SciPy** — statistical tests, distributions, optimization
+- **StatsModels** — regression, time series, hypothesis testing
+- **scikit-learn** — machine learning, clustering, classification, regression
+
+### Visualization
+- **matplotlib** — static charts and graphs
+- **plotly** — interactive charts and dashboards
+- **seaborn** — statistical visualizations
+- **bokeh** — interactive browser-based visualizations
+
+### Data processing
+- **DuckDB** — SQL queries on dataframes
+- **SQLAlchemy** — database connectivity
+- **BeautifulSoup** — web scraping and HTML parsing
+
+### Machine learning
+- **scikit-learn** — classification, regression, clustering, dimensionality reduction
+- **transformers** — Hugging Face models for NLP tasks
+- **TabPFN** — in-context learning for tabular prediction
+
+## SQL execution
+
+The AI also runs SQL queries using `execute_sql`:
+
+```sql
+SELECT region, SUM(revenue) as total
+FROM sheet_data
+WHERE year = 2024
+GROUP BY region
+ORDER BY total DESC
+```
+
+SQL queries can target both spreadsheet data (via DuckDB) and connected databases.
+
+## MCP execution
+
+The `execute_mcp` tool lets the AI call external tools through the Model Context Protocol. This extends capabilities to web scraping (Apify), custom APIs, and other MCP-compatible services.
+
+## Viewing the code
+
+If you want to see what the AI ran, ask:
+
+- "Show me the Python code you used"
+- "What query did you run?"
+
+The AI displays the code in the chat response, which you can copy and modify.

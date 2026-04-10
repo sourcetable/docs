@@ -1,0 +1,58 @@
+---
+title: Visualizations overview
+description: Create charts, graphs, dashboards, and interactive data visualizations in Sourcetable.
+---
+
+Sourcetable provides multiple ways to visualize your data — from simple bar charts to interactive Sankey diagrams and geographic maps. Create visualizations manually from the toolbar, or describe what you want and let the AI build it.
+
+## Visualization engines
+
+Sourcetable uses three visualization engines, each suited to different use cases:
+
+| Engine | Best for | Interactivity |
+|---|---|---|
+| **SourceCharts** | Common charts embedded in the spreadsheet (bar, line, donut, scatter, polar, combo) | Basic — hover tooltips, legend toggle |
+| **ECharts** | Advanced charts with animations and rich interactivity (heatmaps, Sankey, tree maps, gauges) | High — zoom, pan, brush select, animations |
+| **Plotly** | Statistical and scientific charts, pivot visualizations, 3D plots | High — zoom, pan, hover details, export |
+
+The AI selects the best engine automatically based on what you ask for. You can also specify a preference.
+
+## Creating visualizations
+
+### With AI (recommended)
+
+Open the AI chat (`Cmd+\` / `Ctrl+\`) and describe the visualization:
+
+- "Create a bar chart of revenue by quarter"
+- "Show a heatmap of correlations between all numeric columns"
+- "Build a Sankey diagram showing customer journey from signup to purchase"
+- "Make a candlestick chart of AAPL stock price for the last 6 months"
+
+### From the toolbar
+
+1. Select your data range (including headers)
+2. Click **Insert > Chart**
+3. Choose a chart type
+4. Configure axes, series, colors, and labels in the chart editor
+
+## Modifying visualizations
+
+After creating a chart, ask the AI to modify it:
+
+- "Change the colors to a warm palette"
+- "Add data labels showing percentages"
+- "Switch to a stacked bar chart"
+- "Add a trend line"
+- "Make the y-axis logarithmic"
+
+<Columns cols={2}>
+  <Card title="Chart types" icon="chart-bar" href="/visualizations/chart-types">
+    Browse all 30+ supported chart types with examples.
+  </Card>
+  <Card title="Dashboards" icon="gauge" href="/visualizations/dashboards">
+    Build multi-chart dashboards and publish them.
+  </Card>
+  <Card title="Maps" icon="map" href="/visualizations/maps">
+    Create geographic visualizations with choropleth, bubble, and population maps.
+  </Card>
+</Columns>

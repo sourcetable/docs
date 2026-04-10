@@ -1,0 +1,92 @@
+---
+title: Spreadsheet tools
+description: AI tools for reading, writing, and manipulating spreadsheet data.
+---
+
+The AI assistant uses these tools to interact directly with your spreadsheet. You trigger them through natural language — the AI picks the right tool automatically.
+
+## Cell operations
+
+| Tool | What it does |
+|---|---|
+| `write_cells` | Write values or formulas to specific cells |
+| `write_cells_python` | Write data using Python (for complex transformations) |
+| `clear_cells` | Clear the contents of a cell range |
+| `direct_edit` | Edit a cell value directly |
+| `edit_selection` | Modify the currently selected cells |
+| `fill_handle` | Extend a pattern by dragging (like Excel's fill handle) |
+| `fill_blanks` | Fill empty cells with values based on context |
+| `replace` | Find and replace across the sheet |
+
+## Row and column operations
+
+| Tool | What it does |
+|---|---|
+| `insert_rows` | Insert new rows |
+| `delete_rows` | Delete rows |
+| `insert_columns` | Insert new columns |
+| `delete_columns` | Delete columns |
+| `sort_sheet` | Sort data by one or more columns |
+
+## Range operations
+
+| Tool | What it does |
+|---|---|
+| `copy_range` | Copy a range of cells |
+| `cut_range` | Cut a range of cells |
+| `paste_range` | Paste copied/cut data |
+| `move_range` | Move a range to a new location |
+| `expand_selection` | Expand the current selection |
+| `scroll_to` | Scroll to a specific cell or range |
+
+## Formatting
+
+| Tool | What it does |
+|---|---|
+| `set_formatting` | Apply cell formatting (bold, italic, etc.) |
+| `set_background_color_hex` | Set background color with hex value |
+| `set_background_color_preset` | Set background color from preset palette |
+| `set_text_color_hex` | Set text color with hex value |
+| `set_text_color_preset` | Set text color from preset palette |
+| `set_border_colors_hex` | Set border colors with hex values |
+| `set_border_colors_preset` | Set border colors from preset palette |
+| `set_text_horizontal_align` | Set horizontal alignment |
+| `set_text_vertical_align` | Set vertical alignment |
+| `set_text_overflow` | Control text overflow behavior |
+| `cell_number_format` | Apply number formatting |
+| `increase_decimal_places` | Add decimal precision |
+| `decrease_decimal_places` | Reduce decimal precision |
+
+## Sheet management
+
+| Tool | What it does |
+|---|---|
+| `rename_sheet` | Rename the active sheet |
+| `add_new_sheets` | Create new sheets |
+| `move_to_sheet` | Navigate to a specific sheet |
+| `setup_sheets` | Configure sheet settings |
+| `set_gridlines` | Toggle gridlines on/off |
+| `set_zoom` | Set the zoom level |
+
+## Data reading
+
+| Tool | What it does |
+|---|---|
+| `get_entire_sheet_data` | Read all data from a sheet |
+| `get_entire_sheet_formulas` | Read all formulas from a sheet |
+| `get_specific_range_data` | Read data from a specific range |
+| `get_specific_range_formula` | Read formulas from a specific range |
+| `get_selected_range` | Get the current selection |
+| `get_sheet_dimensions` | Get the dimensions of the sheet |
+| `get_sheet_names` | List all sheet names |
+| `get_active_sheet_name` | Get the name of the active sheet |
+| `evaluate_spreadsheet` | Evaluate spreadsheet content and state |
+| `find_cells_by_style` | Find cells matching a specific style |
+
+## Other
+
+| Tool | What it does |
+|---|---|
+| `fix_formula` | Diagnose and fix broken formulas |
+| `validate_coordinates` | Validate cell coordinate references |
+| `undo` | Undo the last action |

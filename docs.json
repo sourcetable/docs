@@ -49,6 +49,31 @@
             ]
           },
           {
+            "group": "Tools",
+            "pages": [
+              "tools/overview",
+              "tools/spreadsheet-tools",
+              "tools/python",
+              "tools/library"
+            ]
+          },
+          {
+            "group": "Visualizations",
+            "pages": [
+              "visualizations/overview",
+              "visualizations/chart-types",
+              "visualizations/dashboards",
+              "visualizations/maps"
+            ]
+          },
+          {
+            "group": "Templates",
+            "pages": [
+              "templates/overview",
+              "templates/excel-templates"
+            ]
+          },
+          {
             "group": "Connectors",
             "pages": [
               "connectors/overview",
@@ -75,10 +100,20 @@
         ]
       },
       {
-        "tab": "Quant",
+        "tab": "Trading",
         "groups": [
           {
-            "group": "Market analyst",
+            "group": "Stock trading",
+            "pages": [
+              "trading/overview",
+              "trading/market-analysis",
+              "trading/strategies",
+              "trading/executing-trades",
+              "trading/portfolio-tracking"
+            ]
+          },
+          {
+            "group": "Financial analysis",
             "pages": [
               "quant/overview",
               "quant/fundamental-analysis",

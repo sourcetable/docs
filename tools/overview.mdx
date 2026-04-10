@@ -1,0 +1,54 @@
+---
+title: Tools overview
+description: Sourcetable's AI has access to 100+ tools across data analysis, visualization, web automation, and more.
+---
+
+Sourcetable's AI assistant isn't just a chatbot — it has access to over 100 specialized tools that it uses to execute tasks in your spreadsheet. When you ask the AI to do something, it selects the right tool (or chain of tools) automatically.
+
+## How tools work
+
+You don't call tools directly. You describe what you want in natural language, and the AI selects and runs the appropriate tools. For example:
+
+- "Clean up this data" → AI uses the `clean_data` tool
+- "Create a scatter plot" → AI uses the `echart` or `plotly` tool
+- "Search the web for GDP data" → AI uses the `web_search` tool
+- "Write a Python script to process this" → AI uses the `execute_python` tool
+
+## Tool categories
+
+<Columns cols={2}>
+  <Card title="Spreadsheet tools" icon="table-cells" href="/tools/spreadsheet-tools">
+    Write cells, format, sort, insert/delete rows and columns, copy/paste ranges, and more.
+  </Card>
+  <Card title="Python and code" icon="code" href="/tools/python">
+    Execute Python with pandas, NumPy, SciPy, scikit-learn, and other data science libraries.
+  </Card>
+  <Card title="Tool library" icon="toolbox" href="/tools/library">
+    Browse all 21 categories of available tools and Python libraries.
+  </Card>
+</Columns>
+
+## Key tool types
+
+| Category | Examples | What they do |
+|---|---|---|
+| **Spreadsheet manipulation** | `write_cells`, `sort_sheet`, `fill_handle`, `set_formatting` | Read, write, and format spreadsheet data |
+| **Data analysis** | `analyze_data`, `clean_data`, `transform_data` | Analyze, clean, and transform datasets |
+| **Code execution** | `execute_python`, `execute_sql`, `execute_mcp` | Run Python, SQL, or MCP tool code |
+| **Visualization** | `echart`, `plotly`, `source_chart`, `make_pivot` | Create charts, graphs, and pivot tables |
+| **Content generation** | `generate_text`, `generate_image`, `rewrite_text`, `translate_text` | Generate and transform text and images |
+| **Research** | `web_search`, `google_search`, `deep_research`, `data_finder` | Search the web and find public datasets |
+| **Browser automation** | `playwright_browser`, `computer_use`, `screenshot` | Automate browser interactions and capture web content |
+| **Financial AI** | 25+ tools for stock analysis, portfolio management, risk, and trading | Institutional-grade financial analysis |
+| **Credentials** | `add_credentials`, `delete_credentials`, `list_credentials` | Manage API keys and database credentials |
+| **Workflows** | `create_workflow`, `plan`, `think` | Save automation sequences and plan complex tasks |
+
+## Tool finder
+
+If you're unsure which tool does what, ask the AI:
+
+- "What tools do you have for data visualization?"
+- "Can you do web scraping?"
+- "What Python libraries are available?"
+
+The AI uses the `tool_finder` tool to discover and describe its own capabilities.

@@ -1,0 +1,52 @@
+---
+title: Maps
+description: Create geographic visualizations with choropleth, bubble, and population maps.
+---
+
+Sourcetable can create geographic visualizations from location-based data. The AI generates maps using ECharts and Plotly, depending on the chart type.
+
+## Map types
+
+### Choropleth maps
+
+Color regions by value. Useful for showing metrics by country, state, or region.
+
+- "Show revenue by US state on a map"
+- "Create a world map colored by GDP per capita"
+- "Visualize customer density by European country"
+
+### Bubble maps
+
+Plot data points on a map with bubble size representing magnitude.
+
+- "Show customer locations with deal size as bubble size"
+- "Map our office locations with headcount"
+- "Plot store locations with monthly revenue"
+
+### Population maps
+
+Visualize density and distribution patterns.
+
+- "Show user distribution by city"
+- "Map population density across counties"
+
+## Data requirements
+
+Geographic maps work best when your data includes:
+
+- **Location identifiers** — country names, state/province names, city names, zip codes, or latitude/longitude coordinates
+- **Values** — a numeric column to determine color intensity (choropleth) or bubble size
+
+The AI can interpret common location formats. If your data uses country codes (US, GB, DE), full names (United States, United Kingdom, Germany), or coordinates, the AI handles the mapping automatically.
+
+## Examples
+
+**Revenue by state:**
+> "Create a choropleth map of the US showing total revenue by state"
+
+The AI reads your state and revenue columns, generates the map, and applies a color gradient from low to high revenue.
+
+**Global customer distribution:**
+> "Map our customers worldwide, colored by region, with bubble size showing annual spend"
+
+The AI geocodes customer locations, groups by region, and creates an interactive bubble map.
