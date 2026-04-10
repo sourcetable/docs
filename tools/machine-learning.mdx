@@ -1,0 +1,84 @@
+---
+title: Machine learning
+description: Run predictions and classifications on your spreadsheet data with TabPFN and scikit-learn.
+---
+
+Sourcetable brings machine learning into the spreadsheet. No data science experience required — describe what you want to predict or classify, and the AI builds and runs the model for you.
+
+## TabPFN (in-context learning)
+
+TabPFN is a neural network that can make predictions on tabular data without training. It works directly on your spreadsheet data:
+
+### Predict mode
+
+Forecast numerical values based on patterns in your data:
+
+- "Predict next month's revenue based on the last 24 months"
+- "Estimate the sale price for these properties based on size, location, and age"
+- "Forecast customer lifetime value based on their first 90 days of activity"
+
+Select **Predict** mode from the AI chat mode selector, or ask in natural language.
+
+### Classify mode
+
+Categorize rows based on features in your data:
+
+- "Classify these leads as hot, warm, or cold based on their engagement metrics"
+- "Predict which customers are likely to churn based on usage patterns"
+- "Categorize these support tickets by priority level"
+
+Select **Classify** mode from the AI chat mode selector.
+
+## scikit-learn
+
+For more traditional machine learning workflows, the AI uses scikit-learn under the hood:
+
+### Clustering
+- "Group these customers into 5 segments based on their purchase behavior"
+- "Find natural clusters in this dataset"
+
+### Regression
+- "Build a linear regression model predicting house prices"
+- "What factors most influence customer satisfaction scores?"
+
+### Classification
+- "Train a model to classify emails as spam or not spam"
+- "Predict which deals will close based on historical win/loss data"
+
+### Dimensionality reduction
+- "Reduce these 50 features to the most important 5"
+- "Create a 2D visualization of these high-dimensional data points"
+
+## How the AI uses ML
+
+When you ask for a prediction or classification, the AI:
+
+1. **Reads your data** from the spreadsheet
+2. **Selects features** — determines which columns are inputs vs. targets
+3. **Handles preprocessing** — missing values, encoding, scaling
+4. **Trains the model** (or uses TabPFN for zero-shot prediction)
+5. **Returns results** — predictions, confidence scores, feature importance
+6. **Writes back** to your spreadsheet
+
+## Available libraries
+
+| Library | Capabilities |
+|---|---|
+| **TabPFN** | Zero-shot prediction and classification for tabular data |
+| **scikit-learn** | Classification, regression, clustering, dimensionality reduction |
+| **SciPy** | Statistical tests, distributions, optimization |
+| **StatsModels** | Regression analysis, time series, hypothesis testing |
+| **NumPy** | Numerical computing, linear algebra |
+| **pandas** | Data manipulation and preprocessing |
+
+## Use cases
+
+| Scenario | Approach |
+|---|---|
+| Sales forecasting | Predict mode with historical sales data |
+| Churn prediction | Classify mode with customer activity data |
+| Customer segmentation | scikit-learn clustering |
+| Price optimization | Regression with feature importance |
+| Anomaly detection | Classify or cluster with outlier identification |
+| A/B test analysis | StatsModels hypothesis testing |
+| Demand forecasting | Time series with StatsModels |

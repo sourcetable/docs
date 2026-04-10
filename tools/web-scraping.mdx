@@ -1,0 +1,73 @@
+---
+title: Web scraping and browser automation
+description: Extract data from websites, automate browser interactions, and capture web content with AI.
+---
+
+Sourcetable's AI can browse the web, extract structured data from websites, and automate browser interactions — all powered by Playwright under the hood. Ask in natural language, and the AI handles the technical details.
+
+## Web scraping
+
+Extract data from web pages and import it directly into your spreadsheet:
+
+- "Scrape the product listings from this URL and put them in a table"
+- "Extract all the pricing information from this competitor's website"
+- "Pull the table of contents from this Wikipedia page"
+- "Get the top 100 results from this search query and list them with titles and URLs"
+
+The AI uses `playwright_browser` and `computer_use` tools to navigate pages, extract content, and structure it into spreadsheet-ready data.
+
+## Browser automation
+
+The AI can interact with web pages like a human user:
+
+- **Navigate** to specific URLs
+- **Click** buttons and links
+- **Fill** forms and input fields
+- **Scroll** through pages
+- **Wait** for content to load
+- **Extract** text, tables, images, and structured data
+
+## Screenshots
+
+Capture visual snapshots of web pages:
+
+- "Take a screenshot of this dashboard URL"
+- "Capture the pricing page of competitor.com"
+
+The AI uses the `screenshot` tool to render the page and return the image.
+
+## MCP integration (Apify)
+
+For large-scale or recurring web scraping, Sourcetable integrates with Apify through MCP:
+
+- Run pre-built Apify actors for common scraping tasks
+- Scrape at scale with rate limiting and proxy rotation
+- Schedule recurring scraping jobs
+- Extract data from JavaScript-heavy single-page applications
+
+Connect Apify from the [MCP connectors](/connectors/mcp) settings.
+
+## Example workflows
+
+### Price monitoring
+> "Every week, scrape competitor pricing from these 5 URLs and add the results to my tracking spreadsheet"
+
+### Lead generation
+> "Extract company names, emails, and phone numbers from this directory page"
+
+### Content aggregation
+> "Pull the latest headlines and summaries from these 10 news sites"
+
+### Data collection
+> "Scrape the results table from this government statistics page and import it"
+
+## Limitations
+
+<Warning>
+  Web scraping must comply with website terms of service and robots.txt directives. Some sites block automated access. The AI respects rate limits and will inform you if a site cannot be scraped.
+</Warning>
+
+- JavaScript-heavy sites may require Apify for reliable extraction
+- Login-protected content requires valid credentials
+- Some sites actively block scraping tools
+- Large-scale scraping is better handled through the Apify MCP connector

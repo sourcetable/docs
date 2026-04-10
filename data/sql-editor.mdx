@@ -1,0 +1,59 @@
+---
+title: SQL editor
+description: Write and run SQL queries against your spreadsheet data and connected databases.
+---
+
+Sourcetable includes a built-in SQL editor that lets you query both spreadsheet data and connected databases using standard SQL syntax.
+
+## Opening the SQL editor
+
+Access the SQL editor from the sidebar or toolbar. You can also ask the AI to open it: "Open the SQL editor."
+
+## Querying spreadsheet data
+
+Sourcetable uses DuckDB under the hood, which means you can run SQL queries directly against your spreadsheet data:
+
+```sql
+SELECT category, SUM(revenue) as total_revenue
+FROM Sheet1
+WHERE date >= '2024-01-01'
+GROUP BY category
+ORDER BY total_revenue DESC
+```
+
+Your sheet names act as table names, and column headers act as column names.
+
+## Querying connected databases
+
+When you have [database connectors](/connectors/databases) configured, you can query them directly from the SQL editor. Select the data source from the dropdown, then write your query.
+
+## Query builder
+
+The visual query builder lets you construct queries without writing SQL:
+
+- **Select tables and columns** from dropdown menus
+- **Add conditions** with visual filter builders
+- **Configure joins** between tables
+- **Apply functions** including Excel-like functions (XL functions)
+- **Preview results** as you build
+
+## Data library
+
+Save frequently used queries to the data library:
+
+1. Write and test your query
+2. Click **Save to Library**
+3. Name and categorize the query
+4. Access it later from the data library in the sidebar
+
+Saved queries can be shared with team members and reused across workbooks.
+
+## AI-powered queries
+
+Instead of writing SQL manually, ask the AI in natural language:
+
+- "Show me the top 10 products by revenue this quarter"
+- "How many new customers signed up each month?"
+- "What's the average order value by customer segment?"
+
+The AI generates and runs the SQL query, then returns the results. See [SQL generator](/ai/sql-generator) for more details.

@@ -1,0 +1,58 @@
+---
+title: Connectors overview
+description: Connect Sourcetable to 80+ databases, APIs, and SaaS tools to pull live data into your spreadsheet.
+---
+
+Sourcetable connects directly to your data sources. Pull live data from databases, SaaS platforms, and APIs into your spreadsheet without manual exports or copy-pasting.
+
+## Connector types
+
+| Type | Count | Description |
+|---|---|---|
+| **Database** | 25 | Connect to relational databases and NoSQL stores |
+| **API** | 60 | Connect to SaaS tools and cloud services |
+| **MCP** | 1+ | Connect via Model Context Protocol for AI-powered data access |
+
+## Adding a connector
+
+<Steps>
+  <Step title="Open connectors">
+    Go to the connectors panel in the left sidebar, or click **Add Connector** in the toolbar.
+  </Step>
+  <Step title="Choose your connector">
+    Select a connector type — Database, API, or MCP — and pick the specific service.
+  </Step>
+  <Step title="Authenticate">
+    Enter your credentials. Depending on the connector, this may be:
+    - **OAuth** — sign in with your account (Google, Facebook, Salesforce, etc.)
+    - **API key** — paste your service's API key
+    - **Database credentials** — host, port, username, password, database name
+    - **Connection string** — a full database connection URI
+  </Step>
+  <Step title="Select your data">
+    Choose which tables, views, or data objects to import. Data appears in your spreadsheet as a connected data source.
+  </Step>
+</Steps>
+
+## Plans and limits
+
+| Plan | Connectors |
+|---|---|
+| Free | — |
+| Pro ($20/user/mo) | Up to 3 data connectors, 30 queries/month |
+| Max ($200/user/mo) | Unlimited connectors and queries |
+| Enterprise | Unlimited with dedicated support |
+
+## Featured connectors
+
+<Columns cols={2}>
+  <Card title="Databases" icon="database" href="/connectors/databases">
+    PostgreSQL, MySQL, Snowflake, MongoDB, SQL Server, DynamoDB, and more.
+  </Card>
+  <Card title="SaaS integrations" icon="cloud" href="/connectors/saas-integrations">
+    Stripe, Salesforce, HubSpot, Google Analytics, Shopify, Jira, and 50+ more.
+  </Card>
+  <Card title="MCP" icon="robot" href="/connectors/mcp">
+    Connect to any MCP-compatible server for AI-powered data access.
+  </Card>
+</Columns>

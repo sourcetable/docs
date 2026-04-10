@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Sourcetable",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#6366F1",
+    "light": "#818CF8",
+    "dark": "#4F46E5"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -17,52 +17,129 @@
             "group": "Getting started",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "getting-started/quickstart",
+              "getting-started/interface-overview"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Spreadsheet",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "spreadsheet/basics",
+              "spreadsheet/formulas",
+              "spreadsheet/formatting",
+              "spreadsheet/charts",
+              "spreadsheet/pivot-tables"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "AI features",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "ai/overview",
+              "ai/chat",
+              "ai/command-bar",
+              "ai/data-analysis",
+              "ai/chart-generator",
+              "ai/formula-generator",
+              "ai/data-cleaning",
+              "ai/synthetic-data",
+              "ai/sql-generator",
+              "ai/automated-reporting",
+              "ai/web-research",
+              "ai/workflows"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Tools",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "tools/overview",
+              "tools/spreadsheet-tools",
+              "tools/python",
+              "tools/deep-research",
+              "tools/web-scraping",
+              "tools/data-finder",
+              "tools/machine-learning",
+              "tools/text-tools",
+              "tools/image-generation",
+              "tools/library"
+            ]
+          },
+          {
+            "group": "Visualizations",
+            "pages": [
+              "visualizations/overview",
+              "visualizations/chart-types",
+              "visualizations/dashboards",
+              "visualizations/maps"
+            ]
+          },
+          {
+            "group": "Templates",
+            "pages": [
+              "templates/overview",
+              "templates/excel-templates"
+            ]
+          },
+          {
+            "group": "Connectors",
+            "pages": [
+              "connectors/overview",
+              "connectors/databases",
+              "connectors/saas-integrations",
+              "connectors/mcp"
+            ]
+          },
+          {
+            "group": "Data",
+            "pages": [
+              "data/import-export",
+              "data/sql-editor",
+              "data/large-files"
+            ]
+          },
+          {
+            "group": "Collaboration",
+            "pages": [
+              "collaboration/organizations",
+              "collaboration/sharing"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Trading",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Stock trading",
             "pages": [
-              "api-reference/introduction"
+              "trading/overview",
+              "trading/market-analysis",
+              "trading/strategies",
+              "trading/executing-trades",
+              "trading/portfolio-tracking"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Financial analysis",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "quant/overview",
+              "quant/fundamental-analysis",
+              "quant/technical-analysis",
+              "quant/portfolio-management",
+              "quant/risk-management",
+              "quant/trade-execution"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Reference",
+        "groups": [
+          {
+            "group": "Reference",
+            "pages": [
+              "reference/keyboard-shortcuts",
+              "reference/ai-models",
+              "reference/supported-formulas"
             ]
           }
         ]
@@ -71,13 +148,13 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "App",
+          "href": "https://app.sourcetable.com",
+          "icon": "table-cells"
         },
         {
           "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
+          "href": "https://sourcetable.com/blog",
           "icon": "newspaper"
         }
       ]
@@ -90,33 +167,20 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Pricing",
+        "href": "https://sourcetable.com/pricing"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Get started",
+      "href": "https://app.sourcetable.com/signup"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/sourcetable",
+      "linkedin": "https://linkedin.com/company/sourcetable"
     }
   }
 }

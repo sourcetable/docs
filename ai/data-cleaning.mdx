@@ -1,0 +1,45 @@
+---
+title: Data cleaning
+description: Automatically clean, deduplicate, and standardize messy data with AI.
+---
+
+Sourcetable's AI can clean and transform messy data in seconds. Instead of manually finding and fixing issues, describe the problem and let the AI handle it.
+
+## Cleaning data with AI
+
+Open the AI chat or command bar and describe what needs cleaning:
+
+- "Remove all duplicate rows"
+- "Fix inconsistent date formats in column B"
+- "Trim whitespace from all text columns"
+- "Standardize country names (US, USA, United States should all be 'United States')"
+- "Fill missing values in the revenue column with the average of adjacent rows"
+- "Remove rows where the email column is empty"
+
+## Common cleaning tasks
+
+| Task | Example prompt |
+|---|---|
+| Remove duplicates | "Remove duplicate rows based on email address" |
+| Fix formatting | "Convert all dates to YYYY-MM-DD format" |
+| Standardize text | "Make all company names title case" |
+| Fill missing data | "Fill blanks in column C with 'Unknown'" |
+| Remove outliers | "Remove rows where salary is more than 3 standard deviations from the mean" |
+| Split columns | "Split the address column into street, city, state, and zip" |
+| Merge columns | "Combine first name and last name into a full name column" |
+| Extract data | "Extract the domain from email addresses into a new column" |
+| Validate data | "Flag rows where the phone number format is invalid" |
+| Convert units | "Convert all weights from pounds to kilograms" |
+
+## Using the command bar
+
+For quick cleaning actions, use the command bar (`Cmd+K` / `Ctrl+K`):
+
+1. Select the cells or columns you want to clean
+2. Press `Cmd+K` / `Ctrl+K`
+3. Type your cleaning instruction
+4. The AI applies the changes directly
+
+## Bulk operations
+
+The AI handles large-scale cleaning operations efficiently. You can clean entire columns or datasets with a single instruction, and the AI processes all rows using optimized Python scripts under the hood.

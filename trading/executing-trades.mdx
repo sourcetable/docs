@@ -1,0 +1,62 @@
+---
+title: Executing trades
+description: Place trades through Robinhood directly from your Sourcetable spreadsheet.
+---
+
+Sourcetable integrates with Robinhood to let you buy and sell directly from the AI chat. Go from analysis to execution without switching apps.
+
+<Warning>
+  Trading involves risk of loss. Past performance does not guarantee future results. Sourcetable does not provide financial advice.
+</Warning>
+
+## Supported assets
+
+- **Stocks** — buy and sell US equities
+- **Crypto** — trade cryptocurrencies
+- **Fractional shares** — buy partial shares of expensive stocks (e.g., $100 of BRK.A)
+
+## Order types
+
+- **Market orders** — execute at the current market price
+- **Limit orders** — set a maximum buy price or minimum sell price
+
+## Placing trades
+
+Ask the AI:
+
+- "Buy 10 shares of AAPL"
+- "Sell 50 shares of TSLA at market price"
+- "Place a limit order to buy 100 shares of MSFT at $400"
+- "Buy $500 worth of Bitcoin"
+- "Buy 0.5 shares of AMZN"
+
+## Paper trading
+
+Test strategies without risking real money. Paper trades simulate real market conditions without executing actual transactions.
+
+- "Paper trade: buy 100 shares of NVDA"
+- "Run this momentum strategy in paper trading mode"
+
+## Connecting Robinhood
+
+<Steps>
+  <Step title="Open AI chat">
+    Press `Cmd+\` (Mac) or `Ctrl+\` (Windows).
+  </Step>
+  <Step title="Add credentials">
+    Ask the AI to connect Robinhood, or go to connector settings. Enter your Robinhood credentials when prompted.
+  </Step>
+  <Step title="Verify">
+    Complete two-factor authentication if required.
+  </Step>
+  <Step title="Start trading">
+    You can now place trades through the AI chat.
+  </Step>
+</Steps>
+
+## Security
+
+- Robinhood credentials are encrypted and stored securely
+- Sourcetable never stores your brokerage password in plain text
+- All trade requests are confirmed before execution
+- You can disconnect Robinhood at any time from settings

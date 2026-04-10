@@ -1,0 +1,86 @@
+---
+title: AI features overview
+description: Sourcetable's AI assistant helps you analyze data, generate formulas, create charts, and automate tasks using natural language.
+---
+
+Sourcetable has a native AI assistant built into the spreadsheet. You interact with it through natural language — describe what you want, and it does it. No code required, though it uses Python, SQL, and advanced data science libraries under the hood.
+
+## Opening the AI assistant
+
+- **Chat panel** — press `Cmd+\` (Mac) or `Ctrl+\` (Windows)
+- **Command bar** — press `Cmd+K` (Mac) or `Ctrl+K` (Windows) for quick actions
+
+## AI modes
+
+The chat panel includes specialized modes you can select from the mode dropdown:
+
+| Mode | What it does |
+|---|---|
+| **Calculate** | Perform quantitative calculations and analysis |
+| **Formula** | Write, explain, or fix spreadsheet formulas |
+| **Chart** | Create charts and visualizations |
+| **Query** | Run SQL queries against your data |
+| **Modify** | Transform, clean, or restructure data |
+| **Generate** | Create sample or synthetic data |
+| **Analyze** | Perform qualitative analysis and insights |
+| **EDA** | Run exploratory data analysis |
+| **Autopilot** | Automate multi-step spreadsheet tasks |
+| **Template** | Generate formatted table templates |
+| **Public Dataset** | Find and import public datasets |
+| **Predict** | Machine learning predictions (TabPFN) |
+| **Classify** | Machine learning classification (TabPFN) |
+
+## What the AI can do
+
+<Columns cols={2}>
+  <Card title="Chat with data" icon="message-bot" href="/ai/chat">
+    Ask questions about your data in plain English and get instant answers.
+  </Card>
+  <Card title="Command bar" icon="terminal" href="/ai/command-bar">
+    Quick AI actions via Cmd+K without opening the full chat.
+  </Card>
+  <Card title="Data analysis" icon="magnifying-glass-chart" href="/ai/data-analysis">
+    Uncover insights, trends, and patterns in your data.
+  </Card>
+  <Card title="Chart generator" icon="chart-bar" href="/ai/chart-generator">
+    Create 30+ chart types from natural language descriptions.
+  </Card>
+  <Card title="Formula generator" icon="function" href="/ai/formula-generator">
+    Generate complex formulas from plain English descriptions.
+  </Card>
+  <Card title="Data cleaning" icon="broom" href="/ai/data-cleaning">
+    Clean, deduplicate, and standardize messy data automatically.
+  </Card>
+  <Card title="Synthetic data" icon="database" href="/ai/synthetic-data">
+    Generate realistic test datasets matching your requirements.
+  </Card>
+  <Card title="SQL generator" icon="code" href="/ai/sql-generator">
+    Convert natural language to SQL queries.
+  </Card>
+  <Card title="Automated reporting" icon="file-chart-column" href="/ai/automated-reporting">
+    Create live reports that update automatically when data changes.
+  </Card>
+  <Card title="Web research" icon="globe" href="/ai/web-research">
+    Search the web and import data directly into your spreadsheet.
+  </Card>
+  <Card title="Workflows" icon="diagram-project" href="/ai/workflows">
+    Save and reuse multi-step AI workflows.
+  </Card>
+</Columns>
+
+## Scope control
+
+You can control what data the AI assistant has access to when answering your questions. Click the scope selector in the chat panel to choose:
+
+- **Current sheet** — AI sees only the active sheet
+- **Specific range** — AI sees only the cells you select
+- **Connected data** — AI can query your connected databases and integrations
+- **Uploaded files** — attach files directly in the chat
+
+## AI models
+
+Sourcetable uses multiple AI models including OpenAI, Claude, Llama, and Hugging Face models. Pro and Max plan users can select their preferred model. See [AI models reference](/reference/ai-models) for details.
+
+## Voice input
+
+Click the microphone button in the chat panel to speak your request. Sourcetable uses Whisper speech recognition to transcribe your voice into text.

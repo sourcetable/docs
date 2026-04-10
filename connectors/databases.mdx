@@ -1,0 +1,88 @@
+---
+title: Database connectors
+description: Connect Sourcetable to PostgreSQL, MySQL, Snowflake, MongoDB, and 20+ other databases.
+---
+
+Sourcetable connects to 25 database types across all major cloud providers. Query your databases directly from the spreadsheet and bring live data into your analysis.
+
+## Supported databases
+
+### PostgreSQL
+- PostgreSQL (generic)
+- AWS Aurora PostgreSQL
+- AWS RDS PostgreSQL
+- Azure PostgreSQL
+- Google Cloud PostgreSQL
+- Heroku PostgreSQL
+- Supabase
+
+### MySQL
+- MySQL (generic)
+- AWS Aurora MySQL
+- AWS RDS MySQL
+- Azure MySQL
+- Google Cloud MySQL
+
+### MariaDB
+- MariaDB (generic)
+- AWS RDS MariaDB
+- Azure MariaDB
+
+### Microsoft SQL Server
+- SQL Server (generic)
+- Azure SQL
+- AWS RDS SQL Server
+
+### MongoDB
+- MongoDB
+- MongoDB Sharded Cluster
+
+### Other
+- Snowflake
+- AWS DynamoDB
+- Azure Cosmos DB
+- Magento (MySQL-based)
+
+## Connecting a database
+
+<Steps>
+  <Step title="Add a connector">
+    Click **Add Connector > Database** and select your database type.
+  </Step>
+  <Step title="Enter credentials">
+    Provide your connection details:
+    - **Host** — the database server address
+    - **Port** — the connection port (defaults are pre-filled)
+    - **Database** — the database name
+    - **Username** — your database user
+    - **Password** — your database password
+    
+    Or paste a **connection string** if you have one.
+  </Step>
+  <Step title="Test and connect">
+    Sourcetable tests the connection and displays available tables and views.
+  </Step>
+  <Step title="Select tables">
+    Choose which tables to make available in your spreadsheet. You can query them using the SQL editor or ask the AI to pull data.
+  </Step>
+</Steps>
+
+## Querying connected databases
+
+Once connected, you can:
+
+- Use the **SQL editor** to write queries directly against your database
+- Ask the **AI assistant** to query in natural language: "Show me all customers who signed up last month"
+- Use the **query builder** for a visual, no-code approach
+- Save queries to the **data library** for reuse
+
+## Security
+
+- Connections are encrypted in transit (TLS/SSL)
+- Credentials are encrypted at rest
+- Sourcetable never stores your raw database data — it streams results on demand
+- Enterprise plans support VPC peering and IP whitelisting
+
+<Info>
+  Database connectors are available on Pro, Max, and Enterprise plans.
+</Info>

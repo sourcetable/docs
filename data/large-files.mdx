@@ -1,0 +1,40 @@
+---
+title: Large file analysis
+description: Analyze files with over 1 million rows in Sourcetable.
+---
+
+Sourcetable can handle files that exceed the traditional spreadsheet limit of 1,048,576 rows. It uses in-browser DuckDB and server-side processing to analyze datasets up to 10 GB.
+
+## How it works
+
+When you upload or connect to a large dataset, Sourcetable:
+
+1. **Streams the data** rather than loading it all into memory
+2. **Uses DuckDB** (a columnar analytics engine) for fast aggregations and queries
+3. **Leverages Python** (pandas, NumPy) for data science operations
+4. **Displays summary views** — you see paginated results rather than all rows at once
+
+## Working with large files
+
+### Upload
+
+Drag and drop your large CSV, XLSX, or JSON file into Sourcetable. The system processes it in the background and makes it available for analysis.
+
+### Query
+
+Use the SQL editor or AI chat to query large datasets:
+
+- "What's the average transaction amount by month for the last 3 years?"
+- "Find all records where the status changed from Active to Cancelled"
+- "Group by region and calculate the sum, average, and count for each"
+
+### Visualize
+
+Create charts and pivot tables from large datasets. The AI aggregates the data before visualizing, so you get meaningful charts without trying to plot millions of individual data points.
+
+## Performance tips
+
+- **Use SQL or AI queries** to aggregate data before displaying results
+- **Filter early** — apply filters to reduce the dataset before analysis
+- **Work with summaries** — aggregate into smaller result sets for interactive exploration
+- **Use connected databases** — for very large datasets, keep the data in a database and query it through a connector rather than uploading files
