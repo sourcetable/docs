@@ -1,0 +1,55 @@
+---
+title: Supported formulas
+description: Sourcetable supports all standard Excel and Google Sheets formulas.
+---
+
+Sourcetable has full formula parity with Excel and Google Sheets. Any formula that works in Excel works in Sourcetable.
+
+## Formula categories
+
+### Math and trigonometry
+`ABS`, `ACOS`, `ASIN`, `ATAN`, `ATAN2`, `CEILING`, `COMBIN`, `COS`, `DEGREES`, `EVEN`, `EXP`, `FACT`, `FLOOR`, `INT`, `LN`, `LOG`, `LOG10`, `MOD`, `ODD`, `PI`, `POWER`, `PRODUCT`, `QUOTIENT`, `RADIANS`, `RAND`, `RANDBETWEEN`, `ROUND`, `ROUNDDOWN`, `ROUNDUP`, `SIGN`, `SIN`, `SQRT`, `SUBTOTAL`, `SUM`, `SUMIF`, `SUMIFS`, `SUMPRODUCT`, `TAN`, `TRUNC`
+
+### Statistical
+`AVERAGE`, `AVERAGEIF`, `AVERAGEIFS`, `COUNT`, `COUNTA`, `COUNTBLANK`, `COUNTIF`, `COUNTIFS`, `LARGE`, `MAX`, `MAXIFS`, `MEDIAN`, `MIN`, `MINIFS`, `MODE`, `PERCENTILE`, `PERCENTRANK`, `QUARTILE`, `RANK`, `SMALL`, `STDEV`, `STDEVP`, `VAR`, `VARP`
+
+### Lookup and reference
+`ADDRESS`, `CHOOSE`, `COLUMN`, `COLUMNS`, `HLOOKUP`, `INDEX`, `INDIRECT`, `LOOKUP`, `MATCH`, `OFFSET`, `ROW`, `ROWS`, `VLOOKUP`, `XLOOKUP`, `XMATCH`
+
+### Text
+`CHAR`, `CLEAN`, `CODE`, `CONCAT`, `CONCATENATE`, `DOLLAR`, `EXACT`, `FIND`, `FIXED`, `LEFT`, `LEN`, `LOWER`, `MID`, `PROPER`, `REPLACE`, `REPT`, `RIGHT`, `SEARCH`, `SUBSTITUTE`, `T`, `TEXT`, `TEXTJOIN`, `TRIM`, `UPPER`, `VALUE`
+
+### Date and time
+`DATE`, `DATEVALUE`, `DAY`, `DAYS`, `DAYS360`, `EDATE`, `EOMONTH`, `HOUR`, `ISOWEEKNUM`, `MINUTE`, `MONTH`, `NETWORKDAYS`, `NOW`, `SECOND`, `TIME`, `TIMEVALUE`, `TODAY`, `WEEKDAY`, `WEEKNUM`, `WORKDAY`, `YEAR`, `YEARFRAC`
+
+### Logical
+`AND`, `FALSE`, `IF`, `IFERROR`, `IFNA`, `IFS`, `NOT`, `OR`, `SWITCH`, `TRUE`, `XOR`
+
+### Financial
+`CUMIPMT`, `CUMPRINC`, `DB`, `DDB`, `FV`, `IPMT`, `IRR`, `MIRR`, `NPER`, `NPV`, `PMT`, `PPMT`, `PV`, `RATE`, `SLN`, `SYD`, `XIRR`, `XNPV`
+
+### Information
+`ERROR.TYPE`, `ISBLANK`, `ISERR`, `ISERROR`, `ISEVEN`, `ISLOGICAL`, `ISNA`, `ISNONTEXT`, `ISNUMBER`, `ISODD`, `ISREF`, `ISTEXT`, `N`, `NA`, `TYPE`
+
+### Engineering
+`BIN2DEC`, `BIN2HEX`, `BIN2OCT`, `DEC2BIN`, `DEC2HEX`, `DEC2OCT`, `HEX2BIN`, `HEX2DEC`, `HEX2OCT`, `OCT2BIN`, `OCT2DEC`, `OCT2HEX`
+
+## Array formulas
+
+Sourcetable supports array formulas for operations that return multiple values. Enter an array formula by pressing `Ctrl+Shift+Enter` after typing the formula.
+
+## Dynamic arrays
+
+Functions like `XLOOKUP`, `FILTER`, `SORT`, `UNIQUE`, and `SEQUENCE` can spill results into multiple cells automatically.
+
+## Cross-sheet references
+
+Reference cells on other sheets using the `SheetName!CellReference` syntax:
+
+```
+=Sheet2!A1
+=SUM(Sales!B2:B100)
+=VLOOKUP(A2, 'Customer Data'!A:C, 3, FALSE)
+```
+
+Use single quotes around sheet names that contain spaces.

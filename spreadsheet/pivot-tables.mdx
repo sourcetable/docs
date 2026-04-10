@@ -1,0 +1,53 @@
+---
+title: Pivot tables
+description: Summarize and analyze data with pivot tables in Sourcetable.
+---
+
+Pivot tables let you summarize, group, and analyze large datasets by reorganizing your data into meaningful cross-tabulations.
+
+## Creating a pivot table
+
+<Steps>
+  <Step title="Select your data">
+    Click anywhere in your dataset. Sourcetable automatically detects the data range.
+  </Step>
+  <Step title="Insert a pivot table">
+    Go to **Insert > Pivot Table**. Choose whether to place it on a new sheet or the current sheet.
+  </Step>
+  <Step title="Configure fields">
+    Drag fields into the **Rows**, **Columns**, **Values**, and **Filters** areas in the pivot table editor.
+  </Step>
+</Steps>
+
+## Pivot table areas
+
+| Area | Purpose | Example |
+|---|---|---|
+| Rows | Categories displayed as rows | Product names, regions, dates |
+| Columns | Categories displayed as columns | Months, status values |
+| Values | Data to aggregate | Sum of revenue, count of orders |
+| Filters | Criteria to filter the entire pivot | Year = 2024, Region = "West" |
+
+## Aggregation functions
+
+Values in pivot tables can be aggregated using:
+
+- **Sum** — total of all values
+- **Count** — number of entries
+- **Average** — mean value
+- **Min / Max** — smallest or largest value
+- **Standard deviation** — measure of variability
+
+## Creating pivot tables with AI
+
+You can also ask the AI assistant to create pivot tables:
+
+- "Create a pivot table showing total sales by region and product category"
+- "Summarize this data by month with average order value"
+- "Make a pivot table of employee count by department and location"
+
+The AI uses the `make_pivot` tool to build the pivot table and can modify it with `edit_pivot` based on follow-up instructions.
+
+## Pivot charts
+
+After creating a pivot table, you can visualize it as a chart. Sourcetable uses Plotly for interactive pivot chart visualizations that update automatically when the pivot data changes.

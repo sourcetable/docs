@@ -1,0 +1,62 @@
+---
+title: Charts
+description: Create charts and visualizations in Sourcetable, manually or with AI.
+---
+
+Sourcetable supports 30+ chart types for visualizing your data. You can create charts manually from the toolbar or use the AI assistant to generate them from a natural language description.
+
+## Supported chart types
+
+<Columns cols={2}>
+  <Card title="Basic charts">
+    Bar, Column, Line, Area, Pie, Donut, Scatter, Bubble
+  </Card>
+  <Card title="Statistical charts">
+    Histogram, Box & Whisker, Violin Plot, Error Bar, Pareto
+  </Card>
+  <Card title="Advanced charts">
+    Heatmap, Tree Map, Sunburst, Sankey Diagram, Waterfall, Funnel, Gauge
+  </Card>
+  <Card title="Specialized charts">
+    Candlestick, Stock Price, Radar, Polar Area, Org Chart, Network/Node-Link, Choropleth Map, Population Map, Bubble Map
+  </Card>
+</Columns>
+
+## Creating a chart manually
+
+<Steps>
+  <Step title="Select your data">
+    Highlight the cells containing the data you want to chart, including headers.
+  </Step>
+  <Step title="Insert a chart">
+    Click **Insert > Chart** from the toolbar, or use the chart icon.
+  </Step>
+  <Step title="Choose a chart type">
+    Select the chart type from the chart editor panel.
+  </Step>
+  <Step title="Configure axes and series">
+    Use the chart editor to set which columns map to axes, series, and labels. Adjust colors, titles, and formatting.
+  </Step>
+</Steps>
+
+## Creating a chart with AI
+
+Open the AI chat (`Cmd+\` / `Ctrl+\`) and select **Chart** mode, or just describe the chart you want:
+
+- "Create a bar chart of sales by region"
+- "Show me a line chart of monthly revenue for the last 12 months"
+- "Make a scatter plot of price vs. quantity with a trend line"
+- "Generate a pie chart showing market share by company"
+
+The AI analyzes your data, selects the appropriate chart type, and creates it. You can then customize it further.
+
+## Chart engine
+
+Sourcetable uses two chart engines under the hood:
+
+- **SourceCharts** — native charts built into the spreadsheet for common chart types
+- **ECharts and Plotly** — advanced charting libraries for specialized visualizations, interactive features, and complex data displays
+
+## Publishing charts
+
+You can publish charts to share them with others outside your workbook. Published charts provide a shareable link that displays the chart with live data.

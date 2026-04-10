@@ -1,0 +1,74 @@
+---
+title: Formulas
+description: Use Excel-compatible formulas in Sourcetable with full function parity.
+---
+
+Sourcetable supports the same formula syntax as Excel and Google Sheets. If a formula works in Excel, it works in Sourcetable.
+
+## Writing formulas
+
+Click a cell and type `=` to start a formula. The formula bar at the top shows the full formula for the selected cell.
+
+```
+=SUM(A1:A100)
+=VLOOKUP(B2, Sheet2!A:C, 3, FALSE)
+=IF(AND(C2>100, D2="Active"), "Priority", "Standard")
+```
+
+## Formula view
+
+Toggle formula view to see all formulas in your sheet at once:
+
+- Press `Ctrl+`` ` (backtick) to switch between values and formulas
+
+## Cell references
+
+| Type | Example | Behavior |
+|---|---|---|
+| Relative | `A1` | Adjusts when copied to other cells |
+| Absolute | `$A$1` | Stays fixed when copied |
+| Mixed | `$A1` or `A$1` | One dimension fixed, one adjusts |
+| Cross-sheet | `Sheet2!A1` | References a cell on another sheet |
+
+## Tracing references
+
+- **Trace precedents** — `Cmd+[` (Mac) or `Ctrl+[` (Windows) to see which cells feed into the current formula
+- **Trace dependents** — `Cmd+]` (Mac) or `Ctrl+]` (Windows) to see which formulas depend on the current cell
+
+## Common function categories
+
+<AccordionGroup>
+  <Accordion title="Math and statistics">
+    `SUM`, `AVERAGE`, `COUNT`, `COUNTA`, `COUNTIF`, `COUNTIFS`, `MIN`, `MAX`, `MEDIAN`, `STDEV`, `ROUND`, `ROUNDUP`, `ROUNDDOWN`, `ABS`, `POWER`, `SQRT`, `MOD`, `SUMIF`, `SUMIFS`, `SUMPRODUCT`, `RAND`, `RANDBETWEEN`
+  </Accordion>
+  <Accordion title="Lookup and reference">
+    `VLOOKUP`, `HLOOKUP`, `INDEX`, `MATCH`, `XLOOKUP`, `OFFSET`, `INDIRECT`, `ROW`, `COLUMN`, `CHOOSE`
+  </Accordion>
+  <Accordion title="Text">
+    `CONCATENATE`, `CONCAT`, `TEXTJOIN`, `LEFT`, `RIGHT`, `MID`, `LEN`, `FIND`, `SEARCH`, `SUBSTITUTE`, `REPLACE`, `TRIM`, `UPPER`, `LOWER`, `PROPER`, `TEXT`, `VALUE`
+  </Accordion>
+  <Accordion title="Date and time">
+    `TODAY`, `NOW`, `DATE`, `YEAR`, `MONTH`, `DAY`, `HOUR`, `MINUTE`, `SECOND`, `DATEDIF`, `EDATE`, `EOMONTH`, `NETWORKDAYS`, `WORKDAY`, `WEEKDAY`, `WEEKNUM`
+  </Accordion>
+  <Accordion title="Logical">
+    `IF`, `IFS`, `AND`, `OR`, `NOT`, `IFERROR`, `IFNA`, `SWITCH`, `TRUE`, `FALSE`
+  </Accordion>
+  <Accordion title="Financial">
+    `PMT`, `FV`, `PV`, `NPV`, `IRR`, `RATE`, `NPER`, `SLN`, `DB`, `DDB`
+  </Accordion>
+</AccordionGroup>
+
+## AI formula generation
+
+Instead of writing formulas manually, you can ask the AI assistant to create them for you:
+
+1. Press `Cmd+\` (Mac) or `Ctrl+\` (Windows) to open the AI chat
+2. Select **Formula** mode from the mode selector
+3. Describe what you want in plain English
+
+Examples:
+- "Write a VLOOKUP to match customer IDs from Sheet2"
+- "Calculate the running total of column C"
+- "Create an IF formula that flags orders over $500"
+
+The AI generates the formula and can insert it directly into your spreadsheet. See [formula generator](/ai/formula-generator) for more details.

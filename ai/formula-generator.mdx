@@ -1,0 +1,46 @@
+---
+title: Formula generator
+description: Generate complex spreadsheet formulas from plain English descriptions.
+---
+
+Describe what you want a formula to do, and the AI writes it for you. It supports all Excel-compatible functions and can handle nested, multi-condition formulas that would be tedious to write manually.
+
+## Using the formula generator
+
+Open the AI chat (`Cmd+\` / `Ctrl+\`) and select **Formula** mode, or just ask:
+
+- "Write a VLOOKUP to match order IDs between Sheet1 and Sheet2"
+- "Create an IF formula that categorizes scores as A, B, C, D, or F"
+- "Calculate the weighted average of column C using weights in column D"
+- "Write a SUMIFS formula that totals revenue for the West region in Q3"
+
+## Capabilities
+
+The formula generator can:
+
+- **Write new formulas** from descriptions
+- **Explain existing formulas** — paste a formula and ask "what does this do?"
+- **Fix broken formulas** — paste an error-producing formula and the AI diagnoses and fixes it
+- **Optimize formulas** — simplify complex nested formulas
+- **Convert between platforms** — translate Google Sheets formulas to Excel syntax and vice versa
+
+## Inserting formulas
+
+When the AI generates a formula, click **Insert** to place it directly into the selected cell. The AI handles cell references based on your current data layout.
+
+## Examples
+
+**Lookup:**
+> "Match customer names to their email addresses using the lookup table on Sheet2"
+>
+> `=VLOOKUP(A2, Sheet2!$A:$B, 2, FALSE)`
+
+**Conditional aggregation:**
+> "Sum all sales from the Marketing department in January"
+>
+> `=SUMIFS(D:D, B:B, "Marketing", C:C, ">="&DATE(2024,1,1), C:C, "<"&DATE(2024,2,1))`
+
+**Nested logic:**
+> "Assign a risk rating based on score: High if above 80, Medium if 50-80, Low if below 50"
+>
+> `=IF(A2>80, "High", IF(A2>=50, "Medium", "Low"))`
