@@ -1,0 +1,2 @@
+# mintlify-docs
+docs
