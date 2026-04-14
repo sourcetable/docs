@@ -18,7 +18,9 @@
             "pages": [
               "index",
               "getting-started/quickstart",
-              "getting-started/interface-overview"
+              "getting-started/interface-overview",
+              "getting-started/pricing",
+              "getting-started/security"
             ]
           },
           {
@@ -92,6 +94,15 @@
             ]
           },
           {
+            "group": "Superagents",
+            "pages": [
+              "superagents/overview",
+              "superagents/api-playground",
+              "superagents/tool-library",
+              "superagents/credentials"
+            ]
+          },
+          {
             "group": "Connectors",
             "pages": [
               "connectors/overview",
@@ -113,6 +124,33 @@
             "pages": [
               "collaboration/organizations",
               "collaboration/sharing"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Use cases",
+        "groups": [
+          {
+            "group": "By team",
+            "pages": [
+              "use-cases/analysts",
+              "use-cases/finance",
+              "use-cases/marketing",
+              "use-cases/sales",
+              "use-cases/operations",
+              "use-cases/hr",
+              "use-cases/ecommerce",
+              "use-cases/agencies"
+            ]
+          },
+          {
+            "group": "By role",
+            "pages": [
+              "use-cases/founders",
+              "use-cases/startups",
+              "use-cases/education",
+              "use-cases/scientific-research"
             ]
           }
         ]

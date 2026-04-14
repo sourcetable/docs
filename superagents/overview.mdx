@@ -1,0 +1,62 @@
+---
+title: Superagents
+description: Connect to any API, database, or MCP server and extend Sourcetable's AI with external tools.
+icon: bolt
+---
+
+Superagents extend Sourcetable's AI beyond the spreadsheet. Connect to any API, database, or MCP server, and the AI can query, update, and orchestrate external systems directly from your workbook.
+
+## What are Superagents
+
+Superagents are AI-powered connections that let you:
+
+- **Query any API** — add your API keys and the AI calls external services on your behalf
+- **Connect any database** — add database credentials and query them via AI or the SQL editor
+- **Use MCP servers** — connect to Model Context Protocol servers for advanced tool integrations
+- **Orchestrate the internet** — combine multiple data sources, APIs, and tools in a single AI workflow
+
+## Key features
+
+<Columns cols={2}>
+  <Card title="API Playground" icon="flask" href="/superagents/api-playground">
+    Add third-party API keys and let the AI call external services.
+  </Card>
+  <Card title="Tool Library" icon="toolbox" href="/superagents/tool-library">
+    Hundreds of built-in tools across 21 categories — data science, visualization, web, security, and more.
+  </Card>
+  <Card title="Credential management" icon="key" href="/superagents/credentials">
+    Securely store and manage API keys, database passwords, and OAuth tokens.
+  </Card>
+  <Card title="Premium connectors" icon="plug" href="/connectors/overview">
+    Built-in database and SaaS app connectors with one-click setup.
+  </Card>
+</Columns>
+
+## How it works
+
+<Steps>
+  <Step title="Add credentials">
+    Store your API key, database connection string, or OAuth token in Sourcetable's encrypted credential manager.
+  </Step>
+  <Step title="Ask the AI">
+    Tell the AI what you need: "Pull my Stripe revenue data for the last 90 days" or "Query the production database for active users."
+  </Step>
+  <Step title="AI calls the service">
+    The AI uses your stored credentials to call the external API or database, processes the response, and returns results to your spreadsheet.
+  </Step>
+  <Step title="Work with the data">
+    Analyze, visualize, transform, or export the data — just like any other data in Sourcetable.
+  </Step>
+</Steps>
+
+## Writeback (beta)
+
+Superagents aren't read-only. With the writeback feature (currently in beta), the AI can:
+
+- Update records in connected databases
+- Create new entries via API calls
+- Trigger actions in external systems
+
+## API access
+
+For programmatic access to Sourcetable, contact [team+api@sourcetable.com](mailto:team+api@sourcetable.com).

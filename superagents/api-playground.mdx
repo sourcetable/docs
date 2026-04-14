@@ -1,0 +1,66 @@
+---
+title: API Playground
+description: Add third-party API keys and let Sourcetable's AI call external services.
+icon: flask
+---
+
+The API Playground lets you connect Sourcetable's AI to any third-party API by providing your API keys. Once connected, the AI can call these services on your behalf.
+
+## Adding an API connection
+
+<Steps>
+  <Step title="Open the credential manager">
+    Click the **credentials** button in the AI chat panel, or go to **Settings > Credentials**.
+  </Step>
+  <Step title="Add a new credential">
+    Click **Add Credential** and select the authentication type:
+    - **API Key** — for services that use API keys
+    - **Bearer Token** — for services that use bearer token auth
+    - **OAuth** — for Google, Facebook, and other OAuth services
+    - **Basic Auth** — for username/password authentication
+    - **Database** — for database connection strings
+    - **Connection String** — for MongoDB and similar services
+  </Step>
+  <Step title="Enter your credentials">
+    Provide a name (alias), the service name, and your authentication details. Choose your encryption level (standard or maximum security).
+  </Step>
+  <Step title="Start using it">
+    Ask the AI to use the connected service: "Pull data from [service name]" or "Query [database name] for..."
+  </Step>
+</Steps>
+
+## Supported authentication types
+
+| Type | Description | Example services |
+|---|---|---|
+| **API Key** | Single key authentication | Stripe, HubSpot, OpenAI, WooCommerce |
+| **Bearer Token** | Token-based auth | Custom APIs, MCP servers |
+| **OAuth** | Google/Facebook SSO flow | Google Analytics, Google Ads, Facebook Ads, Google Drive |
+| **Basic Auth** | Username + password | Jira, Confluence, custom services |
+| **Database** | Host, port, user, password | PostgreSQL, MySQL, SQL Server |
+| **Connection String** | Full connection URI | MongoDB, Redis |
+
+## Pre-configured services
+
+Some services have pre-built OAuth flows for one-click setup:
+
+- **Google Analytics 4** — OAuth with property ID
+- **Google Search Console** — OAuth
+- **Google Ads** — OAuth with customer ID
+- **Google Drive** — OAuth
+- **Google Sheets** — OAuth
+- **Facebook Ads** — OAuth with account ID
+- **LinkedIn** — OAuth
+- **TikTok** — OAuth
+
+For these services, click the service icon and follow the OAuth prompts — no manual key entry needed.
+
+## Example usage
+
+After adding a Stripe API key:
+
+- "Show me total revenue for the last 30 days from Stripe"
+- "List all customers who made a purchase this week"
+- "What's the average transaction value by product?"
+
+The AI calls the Stripe API using your stored credentials and returns the data to your spreadsheet.

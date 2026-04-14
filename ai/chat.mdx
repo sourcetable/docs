@@ -48,6 +48,59 @@ When the AI generates data, formulas, or tables, you can insert them directly in
 
 Click the file upload button in the chat to attach CSV, XLSX, JSON, or other files. The AI can analyze these files directly without you needing to import them into the spreadsheet first.
 
+## Voice input
+
+Click the **microphone button** in the chat input to speak your request instead of typing. Sourcetable uses Whisper speech recognition to transcribe your voice into text.
+
+- Click the mic to start recording
+- Speak your question or instruction
+- Click again to stop — the transcribed text appears in the input field
+- Edit the text if needed, then send
+
+Voice input is useful for longer instructions or when you're analyzing data hands-free.
+
+## Scope selection
+
+By default, the AI has access to data in your active spreadsheet. You can narrow or expand what data the AI sees:
+
+1. Click the **scope button** next to the chat input (or the data source indicator)
+2. Select which data sources the AI should use:
+   - **Integrations** — connected databases and SaaS tools (select specific integrations and tables)
+   - **Files** — attached files in the chat
+3. Click **Save** to apply
+
+Narrowing the scope helps the AI focus on the right data and avoids confusion when you have multiple data sources.
+
+## Autopilot mode (alpha)
+
+Autopilot (also called Sheet Agent) is an alpha feature that automates multi-step spreadsheet tasks. Select **Autopilot** from the mode dropdown and describe a complex task:
+
+- "Set up a monthly reporting template with charts for revenue, expenses, and headcount, then populate it with data from the connected database"
+- "Clean this dataset, run a segmentation analysis, create a summary dashboard, and export it as PDF"
+
+Autopilot executes multiple steps sequentially without you needing to prompt each one. It's experimental — results may vary for complex workflows.
+
+## Chat modes
+
+The mode selector at the top of the chat lets you focus the AI on specific tasks:
+
+| Mode | What it does |
+|---|---|
+| **Default** | General-purpose — ask anything |
+| **Calculate** | Quantitative analysis and computations |
+| **Formula** | Write, explain, or fix spreadsheet formulas |
+| **Chart** | Create charts and visualizations |
+| **Query** | Write and run SQL queries |
+| **Modify** | Transform, clean, or restructure data |
+| **Generate** | Create sample data and templates |
+| **Analyze** | Data analysis and insights |
+| **EDA** | Exploratory data analysis |
+| **Predict** | TabPFN predictions (numerical) |
+| **Classify** | TabPFN classifications (categorical) |
+| **Autopilot** | Multi-step task automation (alpha) |
+| **Template** | Formatted table generation (alpha) |
+| **Public Dataset** | Find and import public datasets (alpha) |
+
 ## Selecting a model
 
 Pro and Max plan users can choose which AI model powers their chat. Click the model selector dropdown to switch between available models. See [AI models](/reference/ai-models) for the full list.
