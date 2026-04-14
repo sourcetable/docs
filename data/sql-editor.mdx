@@ -3,15 +3,15 @@ title: SQL editor
 description: Write and run SQL queries against your spreadsheet data and connected databases.
 ---
 
-Sourcetable includes a built-in SQL editor that lets you query both spreadsheet data and connected databases using standard SQL syntax.
+Sourcetable includes a built-in SQL editor that lets you query both spreadsheet data and connected databases using standard SQL syntax. It runs on DuckDB, which means fast, in-browser SQL execution.
 
 ## Opening the SQL editor
 
-Access the SQL editor from the sidebar or toolbar. You can also ask the AI to open it: "Open the SQL editor."
+Access the SQL editor from the sidebar or toolbar. You can also ask the AI: "Open the SQL editor."
 
 ## Querying spreadsheet data
 
-Sourcetable uses DuckDB under the hood, which means you can run SQL queries directly against your spreadsheet data:
+Your sheet names act as table names, and column headers act as column names:
 
 ```sql
 SELECT category, SUM(revenue) as total_revenue
@@ -21,25 +21,79 @@ GROUP BY category
 ORDER BY total_revenue DESC
 ```
 
-Your sheet names act as table names, and column headers act as column names.
+### Cross-sheet queries
+
+Query across multiple sheets in the same workbook:
+
+```sql
+SELECT o.order_id, o.total, c.name, c.email
+FROM Orders o
+JOIN Customers c ON o.customer_id = c.id
+WHERE o.total > 500
+ORDER BY o.total DESC
+```
 
 ## Querying connected databases
 
-When you have [database connectors](/connectors/databases) configured, you can query them directly from the SQL editor. Select the data source from the dropdown, then write your query.
+When you have [database connectors](/connectors/databases) configured, select the data source from the dropdown at the top of the SQL editor, then write your query. Sourcetable runs the query on the remote database and returns results to your spreadsheet.
 
-## Query builder
+```sql
+-- Querying a connected PostgreSQL database
+SELECT product_name, SUM(quantity) as units_sold
+FROM production.orders
+JOIN production.products USING (product_id)
+WHERE order_date >= CURRENT_DATE - INTERVAL '90 days'
+GROUP BY product_name
+ORDER BY units_sold DESC
+LIMIT 20
+```
 
-The visual query builder lets you construct queries without writing SQL:
+## Supported SQL features
 
-- **Select tables and columns** from dropdown menus
-- **Add conditions** with visual filter builders
-- **Configure joins** between tables
-- **Apply functions** including Excel-like functions (XL functions)
-- **Preview results** as you build
+| Feature | Supported | Examples |
+|---|---|---|
+| **SELECT / FROM / WHERE** | Yes | Basic queries with filtering |
+| **GROUP BY / HAVING** | Yes | Aggregations with conditions |
+| **ORDER BY / LIMIT** | Yes | Sorting and pagination |
+| **JOIN** | Yes | INNER, LEFT, RIGHT, FULL, CROSS joins |
+| **Subqueries** | Yes | Nested SELECT statements |
+| **CTEs** | Yes | `WITH` clauses for readable queries |
+| **Window functions** | Yes | `ROW_NUMBER()`, `RANK()`, `LAG()`, `LEAD()`, `SUM() OVER()` |
+| **UNION / INTERSECT / EXCEPT** | Yes | Combining result sets |
+| **CASE expressions** | Yes | Conditional logic |
+| **Aggregate functions** | Yes | `SUM`, `AVG`, `COUNT`, `MIN`, `MAX`, `STDDEV`, `PERCENTILE_CONT` |
+| **String functions** | Yes | `CONCAT`, `SUBSTRING`, `REPLACE`, `REGEXP_MATCHES` |
+| **Date functions** | Yes | `DATE_TRUNC`, `DATE_DIFF`, `CURRENT_DATE` |
+| **Type casting** | Yes | `CAST()`, `::type` syntax |
+
+## Visual query builder
+
+The query builder lets you construct queries without writing SQL:
+
+<Steps>
+  <Step title="Select tables">
+    Choose which sheets or connected tables to query from dropdown menus.
+  </Step>
+  <Step title="Pick columns">
+    Select which columns to include in the output.
+  </Step>
+  <Step title="Add conditions">
+    Build WHERE clauses with visual filter controls — select a column, operator (equals, contains, greater than, etc.), and value.
+  </Step>
+  <Step title="Configure joins">
+    If querying multiple tables, define join conditions with visual dropdown selectors for left table, right table, and join columns.
+  </Step>
+  <Step title="Apply functions">
+    Add aggregations, Excel-like functions (XL functions), and transformations.
+  </Step>
+  <Step title="Preview and run">
+    See a live preview of your query results as you build. Click **Run** to execute.
+  </Step>
+</Steps>
 
 ## Data library
 
-Save frequently used queries to the data library:
+Save frequently used queries for reuse:
 
 1. Write and test your query
 2. Click **Save to Library**
