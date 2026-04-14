@@ -1,6 +1,6 @@
 ---
 title: Python and code execution
-description: Sourcetable's AI can execute Python, SQL, and MCP code to process your data.
+description: Sourcetable's AI executes Python, SQL, and MCP code to process your data.
 ---
 
 Sourcetable's AI runs Python code under the hood to perform complex data transformations, statistical analysis, and visualizations. You don't need to write Python yourself — the AI generates and executes it based on your natural language instructions.
@@ -14,38 +14,114 @@ When you ask the AI to perform an operation that benefits from code execution, i
 3. Returns the results (tables, charts, statistics, or transformed data)
 4. Optionally shows you the code it ran
 
-## Available Python libraries
+## Available libraries
 
-The AI has access to a comprehensive set of data science and analysis libraries:
+| Library | Category | Capabilities |
+|---|---|---|
+| **pandas** | Data manipulation | Dataframes, groupby, merge, pivot, filtering, reshaping, time series |
+| **NumPy** | Numerical computing | Arrays, linear algebra, random sampling, mathematical operations |
+| **SciPy** | Scientific computing | Statistical tests (t-test, chi-square, ANOVA), distributions, optimization, signal processing |
+| **StatsModels** | Statistical analysis | Regression (OLS, logistic, Poisson), time series (ARIMA, SARIMAX), hypothesis testing |
+| **scikit-learn** | Machine learning | Classification, regression, clustering, dimensionality reduction, preprocessing, model evaluation |
+| **matplotlib** | Static visualization | Publication-quality charts, custom layouts, export to image |
+| **plotly** | Interactive visualization | Interactive charts, 3D plots, dashboards, hover tooltips |
+| **seaborn** | Statistical visualization | Heatmaps, pair plots, distribution plots, regression plots |
+| **bokeh** | Interactive visualization | Browser-based interactive charts, streaming data |
+| **transformers** | NLP / Deep learning | Hugging Face models for text classification, summarization, translation, sentiment analysis |
+| **TabPFN** | AutoML | In-context learning for tabular prediction and classification without training |
+| **BeautifulSoup** | Web scraping | HTML/XML parsing, data extraction from web pages |
+| **SQLAlchemy** | Database | ORM, database connectivity, query building |
+| **DuckDB** | In-browser SQL | Fast analytical queries on dataframes and files |
 
-### Data manipulation
-- **pandas** — dataframes, groupby, merge, pivot, filtering
-- **NumPy** — numerical arrays, linear algebra, random sampling
+## Example operations
 
-### Statistical analysis
-- **SciPy** — statistical tests, distributions, optimization
-- **StatsModels** — regression, time series, hypothesis testing
-- **scikit-learn** — machine learning, clustering, classification, regression
+### Data normalization
 
-### Visualization
-- **matplotlib** — static charts and graphs
-- **plotly** — interactive charts and dashboards
-- **seaborn** — statistical visualizations
-- **bokeh** — interactive browser-based visualizations
+Ask: "Normalize the revenue column using min-max scaling"
 
-### Data processing
-- **DuckDB** — SQL queries on dataframes
-- **SQLAlchemy** — database connectivity
-- **BeautifulSoup** — web scraping and HTML parsing
+```python
+from sklearn.preprocessing import MinMaxScaler
+import pandas as pd
 
-### Machine learning
-- **scikit-learn** — classification, regression, clustering, dimensionality reduction
-- **transformers** — Hugging Face models for NLP tasks
-- **TabPFN** — in-context learning for tabular prediction
+scaler = MinMaxScaler()
+df['revenue_normalized'] = scaler.fit_transform(df[['revenue']])
+```
+
+### Statistical testing
+
+Ask: "Run a t-test comparing revenue between Group A and Group B"
+
+```python
+from scipy import stats
+
+group_a = df[df['group'] == 'A']['revenue']
+group_b = df[df['group'] == 'B']['revenue']
+t_stat, p_value = stats.ttest_ind(group_a, group_b)
+# Returns: t-statistic, p-value, and interpretation
+```
+
+### Time series forecasting
+
+Ask: "Forecast next quarter's revenue using ARIMA"
+
+```python
+from statsmodels.tsa.arima.model import ARIMA
+
+model = ARIMA(df['monthly_revenue'], order=(1, 1, 1))
+results = model.fit()
+forecast = results.forecast(steps=3)
+```
+
+### Correlation heatmap
+
+Ask: "Show me a correlation heatmap of all numeric columns"
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+corr = df.select_dtypes(include='number').corr()
+sns.heatmap(corr, annot=True, cmap='coolwarm', center=0)
+```
+
+### Feature engineering
+
+Ask: "Create a customer lifetime value feature from order history"
+
+```python
+import pandas as pd
+
+clv = df.groupby('customer_id').agg(
+    total_spend=('order_total', 'sum'),
+    order_count=('order_id', 'count'),
+    avg_order_value=('order_total', 'mean'),
+    tenure_days=('order_date', lambda x: (x.max() - x.min()).days)
+)
+clv['predicted_ltv'] = clv['avg_order_value'] * clv['order_count'] * 1.2
+```
+
+## When Python is used vs. spreadsheet formulas
+
+| The AI uses Python when... | The AI uses spreadsheet formulas when... |
+|---|---|
+| Statistical tests or ML models are needed | Simple calculations (SUM, AVERAGE, IF) |
+| Complex data reshaping or pivoting | Lookups (VLOOKUP, INDEX/MATCH) |
+| Multi-step data transformations | Cell-level formatting or conditional logic |
+| Generating charts or visualizations | Basic math across columns |
+| Processing external data (web scraping, APIs) | String manipulation (CONCATENATE, TRIM) |
+| Working with very large datasets | Single-column operations |
+
+## Viewing and modifying the code
+
+To see the code the AI executed:
+
+- Ask "Show me the code you used" or "What Python did you run?"
+- The AI displays the full code in the chat response
+- You can copy the code, modify it, and ask the AI to re-run your version
 
 ## SQL execution
 
-The AI also runs SQL queries using `execute_sql`:
+The AI also runs SQL queries using DuckDB:
 
 ```sql
 SELECT region, SUM(revenue) as total
@@ -59,13 +135,15 @@ SQL queries can target both spreadsheet data (via DuckDB) and connected database
 
 ## MCP execution
 
-The `execute_mcp` tool lets the AI call external tools through the Model Context Protocol. This extends capabilities to web scraping (Apify), custom APIs, and other MCP-compatible services.
+The `execute_mcp` tool lets the AI call external tools through the Model Context Protocol. This extends capabilities to:
 
-## Viewing the code
+- **Web scraping** via Apify MCP connector
+- **Custom APIs** through configured MCP servers
+- **Third-party tools** that support the MCP protocol
 
-If you want to see what the AI ran, ask:
+## Performance notes
 
-- "Show me the Python code you used"
-- "What query did you run?"
-
-The AI displays the code in the chat response, which you can copy and modify.
+- Python execution runs server-side, not in your browser
+- Large operations are processed asynchronously
+- Results stream back as they're ready
+- The AI manages memory and execution limits automatically

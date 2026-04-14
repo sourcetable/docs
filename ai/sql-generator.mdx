@@ -3,49 +3,84 @@ title: SQL generator
 description: Convert natural language to SQL queries and explore your data with AI.
 ---
 
-Sourcetable's AI can write SQL queries from plain English descriptions. This works both for data already in your spreadsheet and for connected databases.
+Sourcetable's AI writes SQL queries from plain English. This works for data in your spreadsheet and for connected databases.
 
 ## Using the SQL generator
 
-Open the AI chat and select **Query** mode, or ask directly:
+Open the AI chat and select **Query** mode, or ask directly in the default mode. The AI generates the SQL, runs it, and returns results to your spreadsheet.
 
-- "Show me all orders over $1000 from the last 30 days"
-- "What's the average revenue by product category?"
-- "Find customers who haven't placed an order in 6 months"
-- "Join the orders table with the customers table and show the top 10 by total spend"
+### Example prompts by complexity
 
-The AI generates the SQL query, runs it against your data, and returns the results directly in your spreadsheet.
+| Complexity | Example prompt |
+|---|---|
+| **Basic** | "Show me all orders from January" |
+| **Filtering** | "Find customers with more than 5 orders and total spend over $10,000" |
+| **Aggregation** | "What's the average revenue by product category, broken down by quarter?" |
+| **Window functions** | "Rank each salesperson by their monthly revenue within their region" |
+| **Cohort analysis** | "Show monthly retention rates for each customer cohort by signup month" |
 
-## SQL editor
+## How it works
 
-Sourcetable also includes a built-in SQL editor for writing queries manually:
+<Steps>
+  <Step title="You describe what you want">
+    Type a natural language description of the data you need: "Show me the top 10 customers by lifetime value who signed up this year."
+  </Step>
+  <Step title="AI generates SQL">
+    The AI writes a SQL query targeting your spreadsheet data or connected database.
+  </Step>
+  <Step title="Query executes">
+    The query runs against your data via DuckDB (for spreadsheet data) or directly on connected databases.
+  </Step>
+  <Step title="Results returned">
+    Results appear in your spreadsheet. You can ask follow-up questions to refine the output.
+  </Step>
+</Steps>
 
-1. Open the SQL editor from the sidebar or toolbar
-2. Write your query
-3. Run it against your spreadsheet data or connected databases
-4. Results appear in a new sheet or table
+## Iterative refinement
 
-The SQL editor supports:
+You can refine queries conversationally:
 
-- Standard SQL syntax (SELECT, JOIN, WHERE, GROUP BY, ORDER BY, etc.)
-- DuckDB SQL dialect for in-browser queries
-- Query builder with visual condition and join editors
-- Saved queries in the data library for reuse
+1. "Show me monthly revenue by region" — AI generates the initial query
+2. "Add a year-over-year growth column" — AI modifies the query
+3. "Filter to only regions with growth over 10%" — AI adds the condition
+4. "Make it a chart" — AI creates a visualization from the results
 
-## Query builder
+The AI remembers the context of your previous queries in the conversation, so each follow-up builds on the last.
 
-For those who prefer a visual approach, the query builder lets you construct queries without writing SQL:
+## Error handling
 
-- Select tables and columns
-- Add filter conditions with dropdowns
-- Configure joins between tables
-- Apply Excel-like functions (XL functions)
-- Preview results as you build
+If a query fails (syntax error, missing column, type mismatch), the AI:
+
+1. Reads the error message
+2. Diagnoses the problem
+3. Rewrites and re-executes the corrected query
+4. Returns the results
+
+You don't need to debug SQL errors — the AI self-corrects.
+
+## Cross-source queries
+
+When you have data in your spreadsheet and a connected database, you can query across both:
+
+- "Compare the revenue in my spreadsheet with the production database totals"
+- "Join my local customer list with the orders table in PostgreSQL"
+
+The AI determines the best execution strategy and handles the cross-source join.
+
+## When to use AI SQL vs. the SQL editor
+
+| Use AI SQL generator when... | Use the [SQL editor](/data/sql-editor) when... |
+|---|---|
+| You want quick answers without writing SQL | You know the exact query you need |
+| You're exploring data and aren't sure what to look for | You want to save queries to the data library |
+| You need to iterate and refine results conversationally | You prefer the visual query builder |
+| You're working across multiple data sources | You need precise control over query syntax |
 
 ## Data library
 
-Save frequently used queries to the data library. Saved queries can be:
+Save AI-generated queries for reuse. After the AI runs a query:
 
-- Reused across workbooks
-- Shared with team members
-- Scheduled to refresh on a cadence (with automated reporting)
+1. Click **Save to Library** on the result
+2. Name and categorize the query
+3. Access it later from the data library sidebar
+4. Schedule queries to refresh automatically with [automated reporting](/ai/automated-reporting)

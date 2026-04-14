@@ -1,35 +1,105 @@
 ---
 title: Import and export
-description: Import data from files and export your work in multiple formats.
+description: Import virtually any file format and export your work in multiple formats.
 ---
 
-Sourcetable supports importing and exporting data in several formats.
+Sourcetable handles almost any file format you can throw at it. Upload files via drag-and-drop, the toolbar, AI chat, or Google Drive.
 
-## Importing data
+## Supported import formats
 
-### Supported import formats
-- **XLSX** — Excel workbooks with full formatting and formula support
-- **CSV** — comma-separated values
-- **JSON** — structured data files
-- **PDF** — extract tabular data from PDF documents
+### Spreadsheet formats
 
-### How to import
+| Format | Extension | What's preserved |
+|---|---|---|
+| **Excel** | `.xlsx`, `.xls` | Formulas, formatting, multiple sheets, named ranges, cell styles |
+| **CSV** | `.csv` | Auto-detects delimiters (comma, semicolon, pipe, tab), encoding, and headers |
+| **TSV** | `.tsv` | Tab-separated values with automatic header detection |
+| **Google Sheets** | via Drive | Import directly from connected Google Drive |
 
-- **Drag and drop** — drag a file directly into your workbook
-- **Upload button** — click the upload button in the toolbar or sidebar
-- **AI chat** — attach a file in the AI chat for analysis without importing to the grid
-- **Google Drive** — import files from your connected Google Drive
+### Data formats
+
+| Format | Extension | How it's handled |
+|---|---|---|
+| **JSON** | `.json` | Nested objects are flattened into columns. Arrays become rows |
+| **JSONL** | `.jsonl` | Line-delimited JSON — each line becomes a row |
+| **Parquet** | `.parquet` | Columnar format, handles multi-GB files efficiently via DuckDB streaming |
+| **XML** | `.xml` | Parsed into tabular structure based on element hierarchy |
+
+### Document formats
+
+| Format | Extension | How it's handled |
+|---|---|---|
+| **PDF** | `.pdf` | Extracts tabular data from tables. OCR for scanned documents |
+| **Word** | `.docx`, `.doc` | Extracts tables and structured content |
+| **Plain text** | `.txt` | AI infers structure from patterns (fixed-width, delimited, log format) |
+
+### Specialized formats
+
+| Format | How it's handled |
+|---|---|
+| **SQL dumps** | Parses CREATE TABLE and INSERT statements into structured tables |
+| **Log files** | AI recognizes common log formats (Apache, nginx, syslog) and structures them |
+| **HTML tables** | Extracts `<table>` elements from HTML files |
+
+## How to import
+
+<Steps>
+  <Step title="Drag and drop">
+    Drag any supported file directly into your workbook. Sourcetable auto-detects the format and imports the data.
+  </Step>
+  <Step title="Upload button">
+    Click the upload button in the toolbar or sidebar to browse and select files.
+  </Step>
+  <Step title="AI chat">
+    Attach a file in the AI chat to analyze it without importing to the grid. You can also ask the AI to import it.
+  </Step>
+  <Step title="Google Drive">
+    Connect your Google Drive and import files directly from your cloud storage.
+  </Step>
+  <Step title="URL import via AI">
+    Paste a URL in the AI chat and ask it to import the data. The AI fetches, parses, and loads the data.
+  </Step>
+</Steps>
+
+## Auto-detection
+
+When you import a file, Sourcetable automatically detects:
+
+- **Character encoding** — UTF-8, Latin-1, Windows-1252, and other encodings
+- **Delimiters** — comma, semicolon, tab, pipe, or custom delimiters
+- **Headers** — whether the first row contains column names
+- **Data types** — numbers, dates, currencies, percentages, text
+- **Date formats** — US (MM/DD/YYYY), European (DD/MM/YYYY), ISO (YYYY-MM-DD), and other formats
+
+## Large file handling
+
+Sourcetable uses DuckDB for streaming large files that exceed memory:
+
+- Files over **1,048,576 rows** are handled with streaming queries
+- Parquet files up to **10 GB** can be processed directly
+- The AI automatically selects the best approach based on file size
+
+See [large file analysis](/data/large-files) for more details.
 
 ## Exporting data
 
-Export your workbook or specific sheets in these formats:
+Export your workbook or specific sheets:
 
 | Format | Best for |
 |---|---|
-| **XLSX** | Sharing with Excel users, preserving formulas and formatting |
+| **XLSX** | Sharing with Excel users — preserves formulas, formatting, and multiple sheets |
 | **CSV** | Raw data for other tools, databases, or scripts |
 | **JSON** | Structured data for APIs and applications |
 | **PDF** | Formatted reports for sharing and printing |
+| **Doc** | Document format for reports and presentations |
+
+### AI-powered export
+
+Ask the AI to export specific subsets or transformations:
+
+- "Export only the rows where revenue is over $10,000 as CSV"
+- "Create a PDF summary report of this quarter's metrics"
+- "Export this sheet as JSON with nested objects for each department"
 
 ## Connecting live data
 

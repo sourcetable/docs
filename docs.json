@@ -154,10 +154,20 @@
         },
         {
           "anchor": "Blog",
-          "href": "https://sourcetable.com/blog",
+          "href": "https://blog.sourcetable.com",
           "icon": "newspaper"
         }
       ]
+    }
+  },
+  "fonts": {
+    "heading": {
+      "family": "IBM Plex Sans",
+      "weight": 600
+    },
+    "body": {
+      "family": "IBM Plex Sans",
+      "weight": 400
     }
   },
   "logo": {
@@ -179,7 +189,7 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/sourcetable",
+      "x": "https://x.com/SourcetableApp",
       "linkedin": "https://linkedin.com/company/sourcetable"
     }
   }
