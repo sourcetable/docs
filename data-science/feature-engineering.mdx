@@ -1,0 +1,102 @@
+---
+title: Feature engineering
+description: Preprocess, transform, and engineer features for analysis and machine learning.
+icon: gears
+---
+
+Sourcetable's AI handles the full data preprocessing pipeline — from raw data to analysis-ready features. Describe what you need and the AI generates the appropriate transformations.
+
+## Data preprocessing
+
+### Handling missing values
+
+- "Fill missing values with the column median"
+- "Impute missing data using k-nearest neighbors"
+- "Drop rows where more than 50% of values are missing"
+- "Forward-fill the time series data"
+
+| Strategy | When to use |
+|---|---|
+| **Mean/Median imputation** | Numerical columns with few missing values |
+| **Mode imputation** | Categorical columns |
+| **Forward/backward fill** | Time series data |
+| **KNN imputation** | When missing values depend on other columns |
+| **Drop rows** | When missing data is random and you have enough rows |
+
+### Encoding categorical variables
+
+- "One-hot encode the product category column"
+- "Label encode the priority column (low=1, medium=2, high=3)"
+- "Target encode the city column based on average revenue"
+
+### Scaling and normalization
+
+- "Standardize all numeric columns (zero mean, unit variance)"
+- "Normalize revenue to a 0-1 range"
+- "Apply log transformation to the skewed columns"
+- "Use robust scaling on columns with outliers"
+
+| Method | When to use |
+|---|---|
+| **StandardScaler** | Most ML models, normally distributed data |
+| **MinMaxScaler** | When you need values in a specific range (0-1) |
+| **RobustScaler** | Data with outliers |
+| **Log transform** | Right-skewed distributions |
+| **Box-Cox** | General normalization of non-normal data |
+
+## Feature creation
+
+### Date/time features
+
+- "Extract day of week, month, quarter, and year from the date column"
+- "Calculate days since last purchase for each customer"
+- "Add a binary column for weekday vs. weekend"
+- "Create lagged features for the last 7 days"
+
+### Aggregation features
+
+- "Calculate rolling 30-day average revenue per customer"
+- "Add a column with each customer's total lifetime orders"
+- "Compute the percentage of total revenue each product represents"
+
+### Interaction features
+
+- "Create interaction terms between price and quantity"
+- "Generate polynomial features up to degree 2"
+- "Add a ratio of revenue to marketing spend"
+
+### Text features
+
+- "Extract the word count from the description column"
+- "Create a binary column for whether the review contains 'refund'"
+- "Calculate sentiment scores for customer feedback"
+
+## Feature selection
+
+Identify which features matter most:
+
+- "Which columns are most predictive of churn?"
+- "Run feature importance on all columns for predicting revenue"
+- "Remove columns with less than 5% importance"
+- "Check for multicollinearity and drop redundant features"
+
+The AI uses:
+- **Correlation analysis** — drop highly correlated features
+- **Feature importance** — from Random Forest or Gradient Boosting
+- **Variance Inflation Factor (VIF)** — detect multicollinearity
+- **Recursive Feature Elimination (RFE)** — iteratively remove the least important features
+
+## Data validation
+
+- "Check for duplicate rows"
+- "Find columns with constant values"
+- "Validate that all dates are in the expected range"
+- "Check data types and flag columns that look miscategorized"
+
+## Pipeline example
+
+Ask the AI to run the full pipeline:
+
+> "Prepare this dataset for machine learning: handle missing values, encode categories, scale numeric columns, and select the top 10 features for predicting customer churn."
+
+The AI runs each step sequentially and shows you the transformations applied.

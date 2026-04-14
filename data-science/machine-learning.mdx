@@ -1,0 +1,120 @@
+---
+title: Machine learning
+description: Build predictive models, classify data, and cluster patterns — all from natural language.
+icon: brain
+---
+
+Sourcetable brings machine learning to your spreadsheet. Describe what you want to predict or classify, and the AI builds, trains, evaluates, and runs the model.
+
+## TabPFN (zero-shot predictions)
+
+TabPFN is a neural network that makes predictions on tabular data **without training**. It works directly on your spreadsheet data in seconds.
+
+### Predict mode
+
+Select **Predict** from the AI chat mode selector for numerical forecasting:
+
+- "Predict next month's revenue based on the last 24 months"
+- "Estimate sale prices for these properties based on size, location, and age"
+- "Forecast customer lifetime value from their first 90 days of activity"
+
+### Classify mode
+
+Select **Classify** from the AI chat mode selector for categorization:
+
+- "Classify these leads as hot, warm, or cold based on engagement metrics"
+- "Predict which customers are likely to churn"
+- "Categorize support tickets by priority level"
+
+## scikit-learn models
+
+For full ML workflows, the AI uses scikit-learn:
+
+### Classification
+
+| Model | Best for | Example prompt |
+|---|---|---|
+| **Random Forest** | General classification with feature importance | "Predict which deals will close based on historical data" |
+| **Logistic Regression** | Binary outcomes with interpretable coefficients | "Build a model to predict loan defaults" |
+| **Gradient Boosting** | High accuracy on structured data | "Classify customer segments with maximum accuracy" |
+| **SVM** | Small datasets with clear margins | "Classify these images based on extracted features" |
+| **k-NN** | Simple, interpretable classification | "Find similar customers based on behavior" |
+
+### Regression
+
+| Model | Best for | Example prompt |
+|---|---|---|
+| **Linear Regression** | Interpretable predictions with few features | "What factors predict revenue?" |
+| **Random Forest Regressor** | Non-linear relationships | "Predict house prices from all features" |
+| **Gradient Boosting Regressor** | Maximum prediction accuracy | "Build the most accurate demand forecast" |
+| **Polynomial Regression** | Curved relationships | "Fit a non-linear model to growth data" |
+| **Ridge / Lasso** | Many correlated features | "Predict sales with regularization" |
+
+### Clustering
+
+| Model | Best for | Example prompt |
+|---|---|---|
+| **K-Means** | General segmentation | "Group customers into 5 segments by behavior" |
+| **DBSCAN** | Finding irregular-shaped clusters | "Find natural groupings without specifying a count" |
+| **Hierarchical** | Understanding cluster relationships | "Show me a dendrogram of customer similarity" |
+| **Gaussian Mixture** | Overlapping clusters | "Find customer segments that may overlap" |
+
+### Dimensionality reduction
+
+- **PCA** — "Reduce 50 features to the most important components"
+- **t-SNE** — "Create a 2D visualization of these high-dimensional data points"
+- **UMAP** — "Visualize clusters in my data"
+
+## End-to-end ML pipeline
+
+When you ask the AI to build a model, it handles the full pipeline:
+
+<Steps>
+  <Step title="Data preprocessing">
+    Handles missing values (imputation or removal), encodes categorical variables (one-hot, label encoding), and scales numerical features (StandardScaler, MinMaxScaler).
+  </Step>
+  <Step title="Train/test split">
+    Splits data into training and test sets (typically 80/20) to prevent overfitting.
+  </Step>
+  <Step title="Model selection">
+    Chooses the appropriate algorithm based on your goal, data size, and feature types.
+  </Step>
+  <Step title="Training">
+    Fits the model on training data. For complex problems, uses cross-validation.
+  </Step>
+  <Step title="Evaluation">
+    Returns performance metrics: accuracy, precision, recall, F1-score, ROC-AUC (classification) or R-squared, MAE, RMSE (regression).
+  </Step>
+  <Step title="Predictions">
+    Writes predictions, confidence scores, and feature importance back to your spreadsheet.
+  </Step>
+</Steps>
+
+## Model evaluation
+
+The AI provides standard evaluation metrics and visualizations:
+
+| Metric | Type | What it tells you |
+|---|---|---|
+| **Accuracy** | Classification | Overall percentage correct |
+| **Precision / Recall** | Classification | True positive rate vs. false positive tradeoff |
+| **F1-score** | Classification | Balanced metric combining precision and recall |
+| **ROC-AUC** | Classification | Model's ability to distinguish between classes |
+| **Confusion matrix** | Classification | Breakdown of predictions vs. actuals |
+| **R-squared** | Regression | How much variance the model explains |
+| **MAE / RMSE** | Regression | Average prediction error magnitude |
+| **Feature importance** | Both | Which columns drive predictions most |
+
+## Hyperparameter tuning
+
+Ask the AI to optimize model performance:
+
+- "Tune the hyperparameters for better accuracy"
+- "Use GridSearchCV to find the best parameters"
+- "Cross-validate with 5 folds and show me the results"
+
+## Exporting models
+
+- Ask "Show me the Python code" to get the full model code
+- Copy the code into a Jupyter notebook or Python script
+- The code follows best practices and is production-ready

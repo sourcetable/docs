@@ -1,0 +1,83 @@
+---
+title: Anomaly detection
+description: Detect outliers, identify unusual patterns, and monitor data quality with AI.
+icon: triangle-exclamation
+---
+
+Sourcetable's AI identifies anomalies, outliers, and unusual patterns in your data. It uses statistical methods and machine learning to flag data points that don't fit expected patterns.
+
+## Running anomaly detection
+
+Ask the AI to scan for anomalies:
+
+- "Find outliers in the transaction data"
+- "Are there any unusual patterns in this week's metrics?"
+- "Flag rows that look suspicious based on historical patterns"
+- "Detect anomalies in server response times"
+
+## Detection methods
+
+### Statistical methods
+
+The AI uses multiple approaches depending on your data:
+
+| Method | How it works | Best for |
+|---|---|---|
+| **Z-score** | Flags values more than 2-3 standard deviations from the mean | Normally distributed data with obvious outliers |
+| **IQR (Interquartile Range)** | Flags values beyond 1.5x the IQR from Q1/Q3 | Skewed distributions, robust to extreme values |
+| **Modified Z-score** | Uses median absolute deviation instead of standard deviation | Data with existing outliers that skew the mean |
+| **Grubbs' test** | Formally tests if the most extreme value is an outlier | Confirming a specific suspected outlier |
+
+### Machine learning methods
+
+For complex, multivariate anomaly detection:
+
+| Method | How it works | Best for |
+|---|---|---|
+| **Isolation Forest** | Isolates anomalies by randomly partitioning features | High-dimensional data, mixed feature types |
+| **DBSCAN** | Points that don't belong to any cluster are anomalies | Spatial or behavioral data |
+| **Local Outlier Factor** | Compares local density to neighbors | Data where anomalies are relative to context |
+| **One-Class SVM** | Learns the boundary of normal data | When you only have examples of "normal" |
+
+### Time series anomaly detection
+
+For data that changes over time:
+
+- "Find days where revenue was abnormally low or high"
+- "Detect sudden spikes in error rates"
+- "Flag metric values that break from the seasonal pattern"
+
+The AI accounts for trends, seasonality, and day-of-week effects before flagging anomalies.
+
+## Use cases
+
+### Fraud detection
+- "Flag transactions that look fraudulent based on amount, location, and time patterns"
+- "Which customer accounts show unusual activity this month?"
+
+### Quality control
+- "Find manufacturing measurements outside acceptable tolerance"
+- "Flag batches with unusually high defect rates"
+
+### Financial monitoring
+- "Detect unusual expense claims in the last quarter"
+- "Which invoices have amounts that don't match typical patterns?"
+
+### Performance monitoring
+- "Flag days where conversion rate dropped abnormally"
+- "Which marketing campaigns had unusual cost-per-acquisition?"
+
+### Data quality
+- "Find data entry errors in this dataset"
+- "Which rows have values that don't make sense?"
+- "Flag any impossible or contradictory values"
+
+## What the AI returns
+
+When anomalies are found, the AI:
+
+1. **Flags the rows** — marks anomalous rows in your spreadsheet
+2. **Explains why** — describes what makes each point unusual (e.g., "Revenue is 4.2 standard deviations above the monthly average")
+3. **Scores severity** — ranks anomalies by how unusual they are
+4. **Visualizes** — creates charts highlighting anomalous points against the normal distribution
+5. **Recommends actions** — suggests whether to investigate, correct, or remove each anomaly

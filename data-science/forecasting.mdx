@@ -1,0 +1,104 @@
+---
+title: Forecasting
+description: Time series forecasting, trend analysis, and demand prediction with AI.
+icon: chart-line
+---
+
+Sourcetable's AI performs time series analysis and forecasting using StatsModels, SciPy, and scikit-learn. Describe what you want to forecast and the AI selects the right model, fits it, and returns predictions.
+
+## Getting started
+
+Select **Predict** mode from the AI chat, or ask directly:
+
+- "Forecast revenue for the next 6 months"
+- "What will demand look like in Q4?"
+- "Predict daily active users for the next 30 days"
+
+The AI automatically detects:
+- **Time frequency** — daily, weekly, monthly, quarterly, annual
+- **Trend** — upward, downward, or flat
+- **Seasonality** — recurring patterns (weekly cycles, holiday spikes, etc.)
+- **Stationarity** — whether the data needs differencing
+
+## Forecasting models
+
+### ARIMA / SARIMAX
+
+Best for univariate time series with clear trends and seasonality:
+
+- "Forecast monthly sales using ARIMA"
+- "Predict next quarter's revenue accounting for seasonal patterns"
+- "Build a SARIMAX model with marketing spend as an exogenous variable"
+
+```python
+from statsmodels.tsa.arima.model import ARIMA
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+
+# Simple ARIMA
+model = ARIMA(data, order=(1, 1, 1))
+
+# Seasonal ARIMA with external factors
+model = SARIMAX(data, order=(1, 1, 1), seasonal_order=(1, 1, 1, 12),
+                exog=marketing_spend)
+```
+
+### Exponential smoothing
+
+Best for data with trend and seasonality but no external factors:
+
+- "Forecast with Holt-Winters triple exponential smoothing"
+- "Use exponential smoothing for short-term demand prediction"
+
+### Linear trend models
+
+Best for simple trend extrapolation:
+
+- "Project revenue growth for the next year based on the current trend"
+- "Fit a linear trend to this data and forecast 12 months out"
+
+### Machine learning forecasting
+
+For complex patterns with many features:
+
+- "Use Random Forest to forecast demand using price, promotions, and weather data"
+- "Build a gradient boosting forecast incorporating multiple external factors"
+
+## Seasonal decomposition
+
+Break down your time series into components:
+
+- "Decompose this series into trend, seasonality, and residual"
+- "Show me the seasonal pattern in weekly sales"
+- "What's the underlying trend after removing seasonality?"
+
+The AI visualizes each component separately so you can understand what's driving your data.
+
+## Forecast evaluation
+
+The AI evaluates forecasts with:
+
+| Metric | What it measures |
+|---|---|
+| **MAE** (Mean Absolute Error) | Average forecast error in original units |
+| **RMSE** (Root Mean Squared Error) | Error magnitude, penalizing large misses |
+| **MAPE** (Mean Absolute Percentage Error) | Error as a percentage — easy to interpret |
+| **AIC / BIC** | Model complexity tradeoff — lower is better |
+
+## Confidence intervals
+
+Forecasts include uncertainty bounds:
+
+- **80% and 95% confidence intervals** by default
+- The AI explains what the intervals mean for decision-making
+- Wider intervals = more uncertainty = consider planning for a range of outcomes
+
+## Common use cases
+
+| Use case | Example prompt |
+|---|---|
+| **Revenue forecasting** | "Forecast monthly revenue for the next 12 months" |
+| **Demand planning** | "Predict daily order volume for next month" |
+| **Inventory optimization** | "When will we run out of stock at current sell-through rates?" |
+| **Staffing** | "Forecast support ticket volume by hour for next week" |
+| **Budget planning** | "Project expenses for the next fiscal year" |
+| **Growth modeling** | "What's our projected user growth rate?" |

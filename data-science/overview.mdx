@@ -1,0 +1,71 @@
+---
+title: Data science overview
+description: Perform advanced data science in a spreadsheet — statistical analysis, machine learning, forecasting, and more.
+icon: flask
+---
+
+Sourcetable is a full data science environment inside a spreadsheet. Describe your analysis in plain English and the AI generates and executes Python code using pandas, scikit-learn, SciPy, StatsModels, and more.
+
+No Python experience required. No setup. No installs.
+
+## Capabilities
+
+<Columns cols={2}>
+  <Card title="Statistical analysis" icon="chart-bar" href="/data-science/statistical-analysis">
+    Hypothesis testing, regression, ANOVA, distributions, and descriptive statistics.
+  </Card>
+  <Card title="Machine learning" icon="brain" href="/data-science/machine-learning">
+    Classification, regression, clustering, and AutoML with TabPFN.
+  </Card>
+  <Card title="Forecasting" icon="chart-line" href="/data-science/forecasting">
+    Time series analysis, ARIMA, seasonal decomposition, and demand prediction.
+  </Card>
+  <Card title="Anomaly detection" icon="triangle-exclamation" href="/data-science/anomaly-detection">
+    Outlier detection, fraud analysis, quality control, and pattern monitoring.
+  </Card>
+  <Card title="Feature engineering" icon="gears" href="/data-science/feature-engineering">
+    Data preprocessing, scaling, encoding, missing value handling, and feature creation.
+  </Card>
+  <Card title="Exploratory data analysis" icon="magnifying-glass-chart" href="/data-science/exploratory-analysis">
+    Automated EDA, correlation analysis, distribution profiling, and data quality checks.
+  </Card>
+</Columns>
+
+## How it works
+
+<Steps>
+  <Step title="Load your data">
+    Import a file, connect a database, or work with data already in your spreadsheet.
+  </Step>
+  <Step title="Describe what you want">
+    Ask the AI in natural language: "Build a model to predict customer churn" or "Run an ANOVA test on these groups."
+  </Step>
+  <Step title="AI generates and runs Python">
+    The AI writes clean, production-ready Python code using the appropriate libraries and executes it.
+  </Step>
+  <Step title="Results in your spreadsheet">
+    Predictions, statistics, charts, and insights are returned directly to your workbook. You can also view the underlying code.
+  </Step>
+</Steps>
+
+## Available libraries
+
+| Library | Purpose |
+|---|---|
+| **pandas** | Data manipulation, aggregation, time series |
+| **NumPy** | Numerical computing, linear algebra |
+| **SciPy** | Statistical tests, distributions, optimization |
+| **StatsModels** | Regression, time series (ARIMA/SARIMAX), hypothesis testing |
+| **scikit-learn** | Classification, regression, clustering, preprocessing, model evaluation |
+| **TabPFN** | Zero-shot tabular prediction and classification |
+| **matplotlib** | Static publication-quality charts |
+| **plotly** | Interactive charts and dashboards |
+| **seaborn** | Statistical visualizations (heatmaps, pair plots, distributions) |
+
+## Who is it for
+
+- **Business analysts** who want ML predictions without writing code
+- **Data analysts** who need statistical rigor in a familiar spreadsheet environment
+- **Operations teams** building forecasting and anomaly detection workflows
+- **Researchers** performing hypothesis testing and experimental analysis
+- **Anyone** who needs data science but doesn't have a Python setup

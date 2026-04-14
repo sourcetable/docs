@@ -1,0 +1,98 @@
+---
+title: Exploratory data analysis
+description: Automated EDA, data profiling, correlation analysis, and distribution checks.
+icon: magnifying-glass-chart
+---
+
+Exploratory data analysis (EDA) is the first step in understanding any dataset. Sourcetable's AI automates the entire EDA process — profiling your data, surfacing patterns, and generating visualizations.
+
+## Running an EDA
+
+Select **EDA** mode from the AI chat, or ask:
+
+- "Run an exploratory data analysis on this dataset"
+- "Profile this data and tell me what you find"
+- "Give me a complete overview of this dataset"
+
+The AI performs a multi-step analysis and returns a comprehensive report.
+
+## What the AI examines
+
+### Dataset overview
+
+- **Shape** — row count, column count
+- **Data types** — numeric, categorical, datetime, text
+- **Missing values** — count and percentage per column
+- **Duplicates** — duplicate row count
+- **Memory usage** — dataset size
+
+### Descriptive statistics
+
+For each numeric column:
+- Mean, median, mode, standard deviation
+- Min, max, range, IQR
+- Skewness and kurtosis
+- Percentiles (25th, 50th, 75th, 95th, 99th)
+
+For each categorical column:
+- Unique value count
+- Most common values and their frequencies
+- Cardinality (high, medium, low)
+
+### Distribution analysis
+
+- **Histograms** for numeric columns
+- **Bar charts** for categorical columns
+- **Normality tests** (Shapiro-Wilk, D'Agostino-Pearson)
+- **Box plots** for outlier visualization
+
+### Correlation analysis
+
+- **Correlation matrix** with heatmap visualization
+- **Scatter plots** for the strongest correlations
+- **Pair plots** for multi-variable relationships
+- Flags highly correlated feature pairs (>0.8)
+
+### Data quality checks
+
+- Columns with >50% missing values
+- Columns with zero variance (constant values)
+- Potential data entry errors (e.g., negative ages, future dates)
+- Columns that might need type conversion
+
+## Targeted analysis
+
+Ask specific questions after the initial EDA:
+
+- "What's driving revenue — which factors correlate most?"
+- "Is there a relationship between customer tenure and order frequency?"
+- "Compare distributions of churned vs. active customers"
+- "Show me the trend in daily signups over the last year"
+
+## Segmented analysis
+
+Break down data by groups:
+
+- "Compare these metrics by customer segment"
+- "Show me how each region performs across all KPIs"
+- "Break down conversion rates by acquisition channel and month"
+
+The AI generates comparison tables and grouped visualizations.
+
+## Automated insights
+
+The AI doesn't just show charts — it highlights what matters:
+
+- **Key findings** — the 3-5 most important patterns in your data
+- **Anomalies** — unusual values or unexpected patterns
+- **Relationships** — which variables are connected and how
+- **Data quality issues** — problems that could affect analysis accuracy
+- **Recommendations** — what to investigate or model next
+
+## Example workflow
+
+1. Upload a dataset or connect to a data source
+2. Ask: "Run an EDA on this data"
+3. Review the automated report (stats, charts, insights)
+4. Ask follow-up questions: "Dig deeper into the relationship between X and Y"
+5. Move to [statistical analysis](/data-science/statistical-analysis) or [machine learning](/data-science/machine-learning) based on findings

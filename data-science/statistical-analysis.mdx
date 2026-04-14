@@ -1,0 +1,116 @@
+---
+title: Statistical analysis
+description: Run hypothesis tests, regression models, and statistical summaries on your spreadsheet data.
+icon: chart-bar
+---
+
+Sourcetable performs advanced statistical analysis through natural language. The AI selects the appropriate test, generates Python code using SciPy and StatsModels, and interprets the results for you.
+
+## Descriptive statistics
+
+Ask the AI to summarize your data:
+
+- "Give me descriptive statistics for all columns"
+- "What's the distribution of customer ages?"
+- "Show me the 5-number summary for revenue"
+
+The AI computes mean, median, mode, standard deviation, variance, skewness, kurtosis, quartiles, and percentiles.
+
+## Hypothesis testing
+
+### t-tests
+
+Compare means between groups:
+
+- "Is there a significant difference in conversion rates between the two landing pages?"
+- "Run a paired t-test comparing before and after treatment scores"
+- "Compare the average order value between mobile and desktop users"
+
+```python
+from scipy import stats
+
+# Independent samples t-test
+t_stat, p_value = stats.ttest_ind(group_a, group_b)
+
+# Paired t-test
+t_stat, p_value = stats.ttest_rel(before, after)
+
+# One-sample t-test
+t_stat, p_value = stats.ttest_1samp(sample, population_mean)
+```
+
+### Chi-square tests
+
+Test relationships between categorical variables:
+
+- "Is there a relationship between customer segment and product preference?"
+- "Run a chi-square test on subscription tier vs. churn status"
+
+### ANOVA
+
+Compare means across multiple groups:
+
+- "Is there a significant difference in sales performance across the four regions?"
+- "Run a one-way ANOVA on test scores by teaching method"
+- "Perform a two-way ANOVA on revenue by region and product category"
+
+### Non-parametric tests
+
+When your data doesn't meet normality assumptions:
+
+- **Mann-Whitney U** — "Compare these two groups without assuming normal distribution"
+- **Kruskal-Wallis** — "Compare satisfaction scores across five departments"
+- **Wilcoxon signed-rank** — "Test if the training improved scores"
+- **Kolmogorov-Smirnov** — "Is this data normally distributed?"
+
+## Regression analysis
+
+### Linear regression
+
+- "What factors predict customer lifetime value?"
+- "Build a regression model for house prices based on size, bedrooms, and location"
+- "What's the R-squared for revenue vs. marketing spend?"
+
+The AI returns coefficients, p-values, R-squared, residual analysis, and confidence intervals.
+
+### Logistic regression
+
+- "Predict the probability of a customer churning"
+- "Build a logistic regression for loan default prediction"
+- "What factors most influence the likelihood of conversion?"
+
+### Multiple regression
+
+- "Run a multivariate regression with revenue as the dependent variable"
+- "Check for multicollinearity among these predictors"
+- "Show me the variance inflation factors"
+
+## Correlation analysis
+
+- "Show me a correlation matrix for all numeric columns"
+- "What's the Pearson correlation between marketing spend and revenue?"
+- "Run a Spearman rank correlation for customer satisfaction vs. retention"
+
+The AI generates correlation matrices, heatmaps, and scatter plots with trend lines.
+
+## Distribution analysis
+
+- "What distribution does this column follow?"
+- "Test if sales data is normally distributed"
+- "Fit a distribution to this data and show the parameters"
+- "Generate a Q-Q plot for residual analysis"
+
+## Effect size and power
+
+- "What's the effect size for this A/B test?"
+- "Calculate Cohen's d for the treatment vs. control difference"
+- "How many samples do I need for 80% power?"
+
+## Interpreting results
+
+The AI doesn't just return numbers — it interprets them:
+
+- Whether the result is statistically significant (with the specified alpha)
+- What the effect size means in practical terms
+- Potential confounding factors to consider
+- Recommendations for next steps
