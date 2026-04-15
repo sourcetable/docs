@@ -125,12 +125,7 @@
               "collaboration/organizations",
               "collaboration/sharing"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Trading",
-        "groups": [
+          },
           {
             "group": "Stock trading",
             "pages": [
@@ -204,7 +199,7 @@
       "anchors": [
         {
           "anchor": "App",
-          "href": "https://app.sourcetable.com",
+          "href": "https://sourcetable.com",
           "icon": "table-cells"
         },
         {
