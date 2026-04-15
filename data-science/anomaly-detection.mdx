@@ -1,0 +1,83 @@
+---
+title: Anomaly detection
+description: Find outliers, fraud, and quality issues with statistical and ML methods.
+icon: triangle-exclamation
+---
+
+Sourcetable offers multiple anomaly detection methods. The AI selects the best approach based on your data and goal.
+
+## Statistical methods
+
+### Z-score
+
+```
+"Flag all transactions with a Z-score above 3"
+```
+
+Identifies values more than N standard deviations from the mean. Works best with normally distributed data.
+
+### IQR method
+
+```
+"Find outliers in the salary column using the IQR method"
+```
+
+Flags values below Q1 - 1.5×IQR or above Q3 + 1.5×IQR. More robust to non-normal distributions than Z-score.
+
+### Modified Z-score (MAD)
+
+Uses Median Absolute Deviation instead of standard deviation. Resistant to outliers in the reference data.
+
+## ML methods
+
+### Isolation Forest
+
+```
+"Run Isolation Forest to detect anomalous transactions"
+```
+
+Isolates anomalies by randomly partitioning the feature space. Works well with:
+- High-dimensional data
+- No need for labeled examples
+- Mixed feature types
+
+### DBSCAN
+
+```
+"Find anomalous data points using DBSCAN clustering"
+```
+
+Points that don't belong to any cluster are flagged as anomalies. Good for:
+- Spatial data
+- Clusters of arbitrary shape
+- Unknown number of anomalies
+
+### Local Outlier Factor (LOF)
+
+```
+"Detect local outliers in the sensor data using LOF"
+```
+
+Compares local density of each point to its neighbors. Catches anomalies that are normal globally but unusual locally.
+
+## Time series anomalies
+
+```
+"Flag days where website traffic is anomalously high or low"
+```
+
+Methods:
+- **Rolling statistics** — flag values outside rolling mean ± N×rolling std
+- **Seasonal decomposition** — flag large residuals after removing trend and seasonality
+- **Prophet-style** — detect changepoints and outliers in seasonal time series
+
+## Use cases
+
+| Domain | What to detect | Suggested method |
+|--------|---------------|-----------------|
+| Finance | Fraudulent transactions | Isolation Forest, Z-score |
+| Manufacturing | Defective products | LOF, IQR |
+| IT operations | Server anomalies | Rolling statistics, DBSCAN |
+| Healthcare | Abnormal lab results | Modified Z-score |
+| E-commerce | Unusual order patterns | Isolation Forest |
+| IoT | Sensor malfunctions | Time series methods |

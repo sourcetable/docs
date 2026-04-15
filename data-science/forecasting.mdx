@@ -1,0 +1,77 @@
+---
+title: Forecasting
+description: Predict future values with ARIMA, exponential smoothing, and ML-based time series forecasting.
+icon: chart-line-up
+---
+
+Sourcetable supports multiple forecasting methods through StatsModels and scikit-learn. Describe your forecasting goal in plain English and the AI selects the appropriate method.
+
+## ARIMA / SARIMAX
+
+```
+"Forecast monthly revenue for the next 12 months using ARIMA"
+```
+
+ARIMA models handle trend and noise. SARIMAX adds seasonal components and external variables.
+
+| Model | Use case |
+|-------|----------|
+| ARIMA | Non-seasonal time series with trend |
+| SARIMA | Seasonal time series (monthly, quarterly, weekly patterns) |
+| SARIMAX | Seasonal time series with external predictors (marketing spend, holidays) |
+
+The AI automatically:
+- Tests for stationarity (ADF test)
+- Determines optimal (p, d, q) parameters using AIC/BIC
+- Adds seasonal orders when periodicity is detected
+- Generates forecasts with confidence intervals
+
+## Exponential smoothing
+
+```
+"Use Holt-Winters to forecast daily sales for the next 30 days"
+```
+
+| Method | Use case |
+|--------|----------|
+| Simple Exponential Smoothing | No trend, no seasonality |
+| Holt's Linear | Trend, no seasonality |
+| Holt-Winters (additive) | Trend + consistent seasonal amplitude |
+| Holt-Winters (multiplicative) | Trend + growing seasonal amplitude |
+
+## ML-based forecasting
+
+```
+"Build a gradient boosting forecast using lag features and rolling averages"
+```
+
+The AI creates time series features (lags, rolling means, day-of-week, month) and trains a regression model. This approach works well when:
+
+- You have many external predictors
+- The relationship is non-linear
+- Traditional time series models underperform
+
+## Seasonal decomposition
+
+```
+"Decompose the sales data into trend, seasonal, and residual components"
+```
+
+Breaks your time series into:
+- **Trend** — long-term direction
+- **Seasonal** — repeating patterns at fixed intervals
+- **Residual** — unexplained variation
+
+Supports both additive and multiplicative decomposition.
+
+## Confidence intervals
+
+All forecasts include confidence intervals (default 95%). The AI visualizes:
+
+- Historical data as a solid line
+- Forecast as a dashed line
+- Confidence bands as shaded regions
+
+```
+"Forecast quarterly revenue for 2025 with 90% confidence intervals"
+```

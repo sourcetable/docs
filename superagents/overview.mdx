@@ -1,0 +1,69 @@
+---
+title: Superagents
+description: Connect Sourcetable to any database, API, or MCP server to extend the AI's capabilities.
+icon: bolt
+---
+
+Superagents let you connect Sourcetable's AI to external services — databases, third-party APIs, and MCP (Model Context Protocol) servers. Once connected, the AI can query, analyze, and act on data from any source.
+
+## What Superagents can do
+
+- **Query databases** in natural language — the AI writes and executes SQL
+- **Call APIs** to pull data from any service with an API
+- **Use MCP servers** for specialized tools (web scraping, data enrichment, etc.)
+- **Write back** to connected services (beta) — update records, trigger actions
+
+## How it works
+
+<Steps>
+  <Step title="Add a connection">
+    Open the Superagents panel and choose **Database**, **API**, or **MCP**. Enter your credentials and connection details.
+  </Step>
+  <Step title="Configure access">
+    Select which tables, endpoints, or tools the AI can access. You can restrict scope to specific resources.
+  </Step>
+  <Step title="Use naturally">
+    Ask the AI questions about your connected data. It automatically routes queries to the right service.
+  </Step>
+</Steps>
+
+## Connection types
+
+<Columns cols={3}>
+  <Card title="Database" icon="database" href="/superagents/api-playground">
+    PostgreSQL, MySQL, MongoDB, Snowflake, and 20+ more. Query live data with natural language.
+  </Card>
+  <Card title="API" icon="plug" href="/superagents/api-playground">
+    Connect to any REST API. Add your API keys and the AI handles authentication and requests.
+  </Card>
+  <Card title="MCP" icon="server" href="/superagents/api-playground">
+    Connect to MCP servers for specialized tools like Apify (web scraping) and more.
+  </Card>
+</Columns>
+
+## Key features
+
+| Feature | Description |
+|---------|-------------|
+| **API Playground** | Test and configure API connections with a built-in interface |
+| **Tool Library** | Browse hundreds of pre-built tools across 21 categories |
+| **Credential Management** | Securely store and manage API keys and database credentials |
+| **Writeback (beta)** | Push data back to connected services from your spreadsheet |
+
+## API access
+
+Sourcetable's API is available for programmatic access. To request API access, contact [team+api@sourcetable.com](mailto:team+api@sourcetable.com).
+
+## Next steps
+
+<Columns cols={2}>
+  <Card title="API Playground" icon="flask" href="/superagents/api-playground">
+    Test and configure connections.
+  </Card>
+  <Card title="Tool Library" icon="toolbox" href="/superagents/tool-library">
+    Browse available tools.
+  </Card>
+  <Card title="Credentials" icon="key" href="/superagents/credentials">
+    Manage API keys and database credentials.
+  </Card>
+</Columns>

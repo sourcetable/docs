@@ -1,0 +1,89 @@
+---
+title: API Playground
+description: Test, configure, and connect APIs and databases through the Superagents interface.
+icon: flask
+---
+
+The API Playground lets you test connections before using them with the AI. You can verify authentication, preview responses, and configure which resources are accessible.
+
+## Adding a database connection
+
+<Steps>
+  <Step title="Open Superagents">
+    Click the **Superagents** button in the toolbar or use the connectors menu in the AI chat.
+  </Step>
+  <Step title="Select Database">
+    Choose your database type: PostgreSQL, MySQL, MongoDB, Snowflake, SQL Server, or any of the 25+ supported databases.
+  </Step>
+  <Step title="Enter credentials">
+    Provide host, port, database name, username, and password. Or paste a connection string.
+  </Step>
+  <Step title="Test connection">
+    Click **Test** to verify the connection works. Sourcetable validates connectivity and lists available tables.
+  </Step>
+  <Step title="Save">
+    Save the connection. It's now available to the AI for natural language queries.
+  </Step>
+</Steps>
+
+## Adding an API connection
+
+<Steps>
+  <Step title="Select API">
+    Choose from the pre-built connector list or add a custom API.
+  </Step>
+  <Step title="Authenticate">
+    Enter your API key, bearer token, or configure OAuth. Different APIs support different auth methods.
+  </Step>
+  <Step title="Configure endpoints">
+    Select which endpoints the AI can access. You can restrict to read-only or allow write operations.
+  </Step>
+  <Step title="Test">
+    Make a test request to verify the API responds correctly.
+  </Step>
+</Steps>
+
+## Adding an MCP connection
+
+MCP (Model Context Protocol) connections let you add specialized tools:
+
+<Steps>
+  <Step title="Select MCP">
+    Choose from available MCP servers (e.g., Apify for web scraping).
+  </Step>
+  <Step title="Configure">
+    Enter the MCP server URL and any required authentication.
+  </Step>
+  <Step title="Select tools">
+    Choose which tools from the MCP server the AI can use.
+  </Step>
+</Steps>
+
+## Supported databases
+
+| Category | Databases |
+|----------|-----------|
+| PostgreSQL | Generic, AWS Aurora, AWS RDS, Azure, Google Cloud, Heroku, Supabase |
+| MySQL | Generic, AWS Aurora, AWS RDS, Azure, Google Cloud |
+| MariaDB | Generic, AWS RDS, Azure |
+| MongoDB | Standard, Sharded Cluster |
+| SQL Server | Generic, Azure, AWS RDS |
+| Other | Snowflake, DynamoDB, Cosmos DB, Magento |
+
+## Using connections with the AI
+
+Once connected, ask the AI questions about your data:
+
+```
+"Show me the top 10 customers by revenue from the production database"
+```
+
+```
+"Pull the latest campaign metrics from the Google Ads API"
+```
+
+```
+"Scrape the pricing table from competitor.com using Apify"
+```
+
+The AI automatically selects the right connection and formats the query.
