@@ -18,7 +18,9 @@
             "pages": [
               "index",
               "getting-started/quickstart",
-              "getting-started/interface-overview"
+              "getting-started/interface-overview",
+              "getting-started/pricing",
+              "getting-started/security"
             ]
           },
           {
@@ -46,6 +48,27 @@
               "ai/automated-reporting",
               "ai/web-research",
               "ai/workflows"
+            ]
+          },
+          {
+            "group": "Data science",
+            "pages": [
+              "data-science/overview",
+              "data-science/eda",
+              "data-science/statistics",
+              "data-science/machine-learning",
+              "data-science/forecasting",
+              "data-science/anomaly-detection",
+              "data-science/feature-engineering"
+            ]
+          },
+          {
+            "group": "Superagents",
+            "pages": [
+              "superagents/overview",
+              "superagents/api-playground",
+              "superagents/tool-library",
+              "superagents/credentials"
             ]
           },
           {
@@ -127,6 +150,38 @@
               "quant/portfolio-management",
               "quant/risk-management",
               "quant/trade-execution"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Use cases",
+        "groups": [
+          {
+            "group": "By role",
+            "pages": [
+              "use-cases/analysts",
+              "use-cases/finance",
+              "use-cases/marketing",
+              "use-cases/sales",
+              "use-cases/operations",
+              "use-cases/hr"
+            ]
+          },
+          {
+            "group": "By industry",
+            "pages": [
+              "use-cases/ecommerce",
+              "use-cases/education",
+              "use-cases/research"
+            ]
+          },
+          {
+            "group": "By company stage",
+            "pages": [
+              "use-cases/founders",
+              "use-cases/startups",
+              "use-cases/agencies"
             ]
           }
         ]

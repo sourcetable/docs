@@ -1,0 +1,73 @@
+---
+title: Exploratory data analysis
+description: Automatically profile datasets, analyze distributions, and discover patterns in your data.
+icon: magnifying-glass-chart
+---
+
+Exploratory data analysis (EDA) is usually the first step in any data workflow. Sourcetable automates the tedious parts — profiling, distribution analysis, and correlation — so you can jump straight to insights.
+
+## Automated data profiling
+
+Ask the AI to profile your dataset and it generates a comprehensive summary:
+
+```
+"Profile this dataset and give me a summary of all columns"
+```
+
+The AI examines every column and reports:
+
+- **Data types** — numeric, categorical, datetime, text, boolean
+- **Missing values** — count and percentage per column
+- **Unique values** — cardinality for each column
+- **Basic statistics** — mean, median, mode, std dev, min, max, quartiles
+- **Distribution shape** — skewness and kurtosis for numeric columns
+
+## Distribution analysis
+
+```
+"Show the distribution of revenue across all customers"
+```
+
+The AI generates histograms, box plots, or violin plots depending on your data. It identifies:
+
+- Normal vs. skewed distributions
+- Outliers beyond 1.5x IQR
+- Bimodal or multimodal patterns
+- Log-normal distributions common in financial data
+
+## Correlation analysis
+
+```
+"Run a correlation analysis on all numeric columns and show a heatmap"
+```
+
+Sourcetable calculates Pearson, Spearman, or Kendall correlations and renders an interactive heatmap. It highlights:
+
+- Strong positive correlations (> 0.7)
+- Strong negative correlations (< -0.7)
+- Multicollinearity between features
+- Unexpected relationships
+
+## Automated insights
+
+```
+"What are the most interesting patterns in this data?"
+```
+
+The AI scans your dataset and surfaces:
+
+- Columns with high missing value rates
+- Highly correlated feature pairs
+- Categorical columns with imbalanced classes
+- Temporal trends and seasonality
+- Potential data quality issues (duplicates, inconsistent formats)
+
+## Example prompts
+
+| Goal | Prompt |
+|------|--------|
+| Full profile | "Profile this dataset — show data types, missing values, and statistics for every column" |
+| Compare groups | "Compare the distribution of salary between departments" |
+| Find outliers | "Identify outliers in the revenue column using IQR and Z-score methods" |
+| Time patterns | "Show how monthly sales have trended over the past 2 years" |
+| Category breakdown | "Break down customer count by region and show percentages" |

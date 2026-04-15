@@ -1,0 +1,62 @@
+---
+title: Security and compliance
+description: How Sourcetable protects your data with encryption, access controls, and compliant infrastructure.
+icon: shield-halved
+---
+
+Sourcetable is designed with security as a core principle. Your data is protected through encryption, access controls, and infrastructure built on industry-leading providers.
+
+## Infrastructure compliance
+
+<Info>
+  Sourcetable's infrastructure is built on services and providers that maintain SOC 2, HIPAA, and PCI compliance certifications.
+</Info>
+
+## Encryption
+
+### Data at rest
+
+All stored data is encrypted at rest using AES-256 encryption. This includes:
+
+- Workbook content and formulas
+- Uploaded files
+- Connected data source credentials
+- User account information
+
+### Data in transit
+
+All data transmitted between your browser and Sourcetable servers is encrypted with TLS 1.2+.
+
+### Credential encryption
+
+When you connect databases or APIs, your credentials are encrypted using one of two modes:
+
+| Mode | Description |
+|------|-------------|
+| **Standard symmetric** | Credentials encrypted with AES-256 symmetric encryption managed by Sourcetable |
+| **PGP encryption** | Credentials encrypted with your own PGP public key — only you can decrypt them |
+
+See [Credential management](/superagents/credentials) for details on setting up encrypted credentials.
+
+## Access controls
+
+- **Authentication** — Email/password, Google OAuth, or SSO (Enterprise)
+- **Organizations** — Team-level workspaces with admin roles
+- **Sharing permissions** — Control who can view or edit each workbook
+
+## Data handling
+
+- Connected data is queried in real time — Sourcetable does not permanently store your database contents
+- File uploads are stored encrypted and accessible only to your account
+- AI conversations are processed by Sourcetable's AI infrastructure and are not shared with other users
+
+## Enterprise security
+
+Enterprise plans include:
+
+- **SSO** — SAML-based single sign-on
+- **Dedicated support** — Priority response from the security team
+- **Custom data residency** — Choose where your data is stored
+- **Audit capabilities** — Track user actions across your organization
+
+Contact [team@sourcetable.com](mailto:team@sourcetable.com) to discuss enterprise security requirements.

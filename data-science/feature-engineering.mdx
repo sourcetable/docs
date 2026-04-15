@@ -1,0 +1,110 @@
+---
+title: Feature engineering
+description: Transform raw data into model-ready features with encoding, scaling, and automated creation.
+icon: gears
+---
+
+Feature engineering turns raw data into inputs that improve model performance. Sourcetable automates common transformations through the AI assistant.
+
+## Missing value handling
+
+```
+"Handle missing values in the dataset — use median for numeric and mode for categorical"
+```
+
+| Strategy | When to use |
+|----------|-------------|
+| Mean/median imputation | Numeric columns, few missing values |
+| Mode imputation | Categorical columns |
+| Forward/backward fill | Time series data |
+| KNN imputation | Values depend on other features |
+| Drop rows | Small percentage missing, large dataset |
+| Indicator column | Missingness itself is informative |
+
+## Encoding categorical variables
+
+```
+"Encode all categorical columns for the ML model"
+```
+
+| Method | When to use |
+|--------|-------------|
+| One-hot encoding | Nominal categories (color, city) with low cardinality |
+| Label encoding | Ordinal categories (low/medium/high) |
+| Target encoding | High-cardinality categories (zip code, product ID) |
+| Binary encoding | High-cardinality with many categories |
+| Frequency encoding | When category frequency matters |
+
+## Scaling and normalization
+
+```
+"Normalize all numeric features to 0-1 range"
+```
+
+| Method | When to use |
+|--------|-------------|
+| StandardScaler (Z-score) | Most ML algorithms, normally distributed data |
+| MinMaxScaler (0-1) | Neural networks, distance-based algorithms |
+| RobustScaler | Data with outliers |
+| Log transform | Right-skewed distributions (income, prices) |
+| Box-Cox transform | Make data more normal, various skew levels |
+
+## Feature creation
+
+### Date/time features
+
+```
+"Extract year, month, day of week, and hour from the timestamp column"
+```
+
+Creates: year, quarter, month, week, day of week, day of month, hour, minute, is_weekend, is_holiday, days_since_start.
+
+### Aggregation features
+
+```
+"Create customer-level features: total purchases, average order value, days since last order"
+```
+
+Group-by aggregations: sum, mean, median, count, min, max, std, first, last.
+
+### Interaction features
+
+```
+"Create interaction features between price and quantity"
+```
+
+Products, ratios, and polynomial features between numeric columns.
+
+### Text features
+
+```
+"Extract features from the product description column"
+```
+
+Creates: word count, character count, average word length, sentiment score, TF-IDF vectors.
+
+## Feature selection
+
+### Importance-based
+
+```
+"Rank features by importance using a random forest"
+```
+
+Trains a model and ranks features by their contribution to predictions.
+
+### Variance Inflation Factor (VIF)
+
+```
+"Check for multicollinearity and drop highly correlated features"
+```
+
+Calculates VIF for each feature. Values above 5-10 indicate problematic multicollinearity.
+
+### Recursive Feature Elimination (RFE)
+
+```
+"Use RFE to find the optimal set of features for the model"
+```
+
+Iteratively removes the least important feature until performance stops improving.

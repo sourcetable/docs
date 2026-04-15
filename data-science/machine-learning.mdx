@@ -1,0 +1,119 @@
+---
+title: Machine learning
+description: Build classification, regression, and clustering models with TabPFN and scikit-learn.
+icon: brain
+---
+
+Sourcetable supports two ML approaches: **TabPFN** for instant zero-shot predictions, and **scikit-learn** for full model training pipelines.
+
+## TabPFN — zero-shot predictions
+
+TabPFN is a pre-trained neural network that makes predictions on tabular data without any training step. It works immediately on your data.
+
+```
+"Predict which customers will churn based on their usage data using TabPFN"
+```
+
+### When to use TabPFN
+
+- Small to medium datasets (under 10,000 rows works best)
+- Quick prototyping — get results in seconds
+- No hyperparameter tuning needed
+- Classification and regression tasks
+
+### Available modes
+
+| Mode | Chat mode | Description |
+|------|-----------|-------------|
+| Classification | **Classify** | Predict categorical outcomes (churn/no churn, fraud/legitimate) |
+| Regression | **Predict** | Predict continuous values (price, score, duration) |
+
+## scikit-learn — full ML pipeline
+
+For larger datasets or when you need more control, Sourcetable uses scikit-learn under the hood.
+
+### Classification
+
+```
+"Build a random forest classifier to predict loan default from the applicant data"
+```
+
+Available algorithms:
+
+| Algorithm | Best for |
+|-----------|----------|
+| Random Forest | General purpose, handles mixed features well |
+| Gradient Boosting | High accuracy, handles non-linear relationships |
+| Logistic Regression | Interpretable, good baseline |
+| SVM | High-dimensional data, clear margin of separation |
+| k-Nearest Neighbors | Simple, non-parametric |
+| Decision Tree | Interpretable, visual output |
+| Naive Bayes | Text classification, very fast |
+
+### Regression
+
+```
+"Train a gradient boosting model to predict house prices"
+```
+
+Available algorithms: Linear Regression, Ridge, Lasso, ElasticNet, Random Forest Regressor, Gradient Boosting Regressor, SVR, Decision Tree Regressor.
+
+### Clustering
+
+```
+"Cluster customers into segments based on purchase behavior"
+```
+
+| Algorithm | Best for |
+|-----------|----------|
+| K-Means | Spherical clusters, known number of groups |
+| DBSCAN | Arbitrary shapes, automatic cluster count |
+| Hierarchical | Dendrogram visualization, nested groups |
+| Gaussian Mixture | Overlapping clusters, soft assignments |
+
+### Dimensionality reduction
+
+```
+"Reduce the dataset to 2 dimensions with PCA and plot the clusters"
+```
+
+Available methods: PCA, t-SNE, UMAP, LDA.
+
+## End-to-end ML pipeline
+
+When you ask the AI to build a model, it automatically handles:
+
+1. **Data splitting** — train/test split (default 80/20)
+2. **Feature preprocessing** — encoding categoricals, scaling numerics, handling missing values
+3. **Model training** — fits the chosen algorithm
+4. **Evaluation** — generates metrics and visualizations
+5. **Results** — writes predictions back to your spreadsheet
+
+## Model evaluation
+
+The AI reports relevant metrics based on the task:
+
+**Classification metrics:**
+- Accuracy, Precision, Recall, F1 Score
+- ROC curve and AUC
+- Confusion matrix
+- Classification report by class
+
+**Regression metrics:**
+- R-squared and Adjusted R-squared
+- MAE (Mean Absolute Error)
+- RMSE (Root Mean Squared Error)
+- Residual plots
+
+**Clustering metrics:**
+- Silhouette score
+- Calinski-Harabasz index
+- Inertia (for K-Means)
+
+## Hyperparameter tuning
+
+```
+"Tune the random forest hyperparameters using cross-validation"
+```
+
+The AI performs grid search or randomized search with cross-validation to find optimal parameters.

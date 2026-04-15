@@ -1,0 +1,69 @@
+---
+title: Data science overview
+description: Run data science workflows in your spreadsheet with Python, ML, and statistics — no environment setup required.
+icon: flask
+---
+
+Sourcetable gives you a complete data science environment inside your spreadsheet. Ask the AI to run analyses in plain English and it executes Python code with pandas, scikit-learn, StatsModels, and more — no installs, no notebooks, no configuration.
+
+## How it works
+
+<Steps>
+  <Step title="Prepare your data">
+    Import data via file upload, connector, or paste. Sourcetable handles CSV, XLSX, Parquet, JSON, and 15+ other formats.
+  </Step>
+  <Step title="Ask the AI">
+    Describe what you want in the chat: "Run a correlation analysis on columns A through F" or "Build a classification model to predict churn."
+  </Step>
+  <Step title="Review results">
+    The AI writes and executes Python code, then writes results back to your spreadsheet. You can view, modify, and re-run the generated code.
+  </Step>
+</Steps>
+
+## Available libraries
+
+| Library | Capabilities |
+|---------|-------------|
+| **pandas** | Data manipulation, cleaning, aggregation, merging, time series |
+| **NumPy** | Numerical computing, linear algebra, random sampling |
+| **SciPy** | Statistical tests, optimization, signal processing, interpolation |
+| **StatsModels** | Regression, ANOVA, time series (ARIMA/SARIMAX), hypothesis tests |
+| **scikit-learn** | Classification, regression, clustering, dimensionality reduction, feature selection |
+| **TabPFN** | Zero-shot predictions and classifications without training |
+| **plotly** | Interactive charts and visualizations |
+| **matplotlib** | Static plots, histograms, heatmaps |
+| **seaborn** | Statistical visualizations, distribution plots, pair plots |
+| **bokeh** | Interactive browser-based visualizations |
+| **transformers** | NLP, text classification, sentiment analysis |
+| **BeautifulSoup** | Web scraping and HTML parsing |
+| **SQLAlchemy** | Database queries from Python |
+
+## What you can do
+
+<Columns cols={2}>
+  <Card title="Exploratory data analysis" icon="magnifying-glass-chart" href="/data-science/eda">
+    Profile datasets, find distributions, and surface patterns automatically.
+  </Card>
+  <Card title="Statistical analysis" icon="chart-scatter" href="/data-science/statistics">
+    Hypothesis tests, regression, ANOVA, and correlation analysis.
+  </Card>
+  <Card title="Machine learning" icon="brain" href="/data-science/machine-learning">
+    Classification, regression, clustering, and zero-shot predictions with TabPFN.
+  </Card>
+  <Card title="Forecasting" icon="chart-line-up" href="/data-science/forecasting">
+    ARIMA, exponential smoothing, and ML-based time series forecasting.
+  </Card>
+  <Card title="Anomaly detection" icon="triangle-exclamation" href="/data-science/anomaly-detection">
+    Statistical and ML methods to find outliers, fraud, and quality issues.
+  </Card>
+  <Card title="Feature engineering" icon="gears" href="/data-science/feature-engineering">
+    Transform raw data into model-ready features with encoding, scaling, and creation.
+  </Card>
+</Columns>
+
+## Who it's for
+
+- **Analysts** — Run statistical tests and build models without leaving your spreadsheet
+- **Data scientists** — Prototype faster with instant Python execution and visualization
+- **Researchers** — Process experimental data with proper statistical methods
+- **Business users** — Get data science results through natural language, no coding required

@@ -48,6 +48,66 @@ When the AI generates data, formulas, or tables, you can insert them directly in
 
 Click the file upload button in the chat to attach CSV, XLSX, JSON, or other files. The AI can analyze these files directly without you needing to import them into the spreadsheet first.
 
+## Voice input
+
+Click the **microphone button** in the chat input to speak your request. Sourcetable uses Whisper speech recognition to transcribe your voice into text. This is useful for:
+
+- Hands-free data exploration
+- Dictating complex questions more naturally
+- Accessibility
+
+## Scope selection
+
+Control which data the AI operates on by setting the scope. Click the **scope selector** at the top of the chat panel to choose:
+
+| Scope | What the AI sees |
+|-------|-----------------|
+| **Current sheet** | Only the active sheet in your workbook |
+| **Entire workbook** | All sheets in the current workbook |
+| **Selected range** | Only the cells you've highlighted |
+| **Connected integrations** | Data from connected databases and APIs |
+| **Uploaded files** | Files attached to the chat |
+
+You can combine scopes — for example, analyze your spreadsheet data alongside a connected database.
+
+## Autopilot mode <Tag>Alpha</Tag>
+
+Autopilot is an autonomous mode where the AI executes multi-step spreadsheet tasks without requiring approval at each step.
+
+```
+"Autopilot: Clean this data, create a pivot table by region, and generate a bar chart"
+```
+
+In Autopilot mode, the AI:
+1. Plans the full sequence of steps
+2. Executes each step automatically
+3. Reports back when complete
+
+<Warning>
+  Autopilot is in alpha. Review the AI's plan before it executes, and use undo (`Cmd+Z`) if needed.
+</Warning>
+
+## Chat modes
+
+Select a specialized mode from the mode dropdown for focused tasks:
+
+| Mode | Description | Example prompt |
+|------|-------------|---------------|
+| **Default** | General purpose | "What would you like to do?" |
+| **Calculate** | Quantitative analysis | "What's the weighted average cost of capital?" |
+| **Formula** | Formula assistance | "Write a VLOOKUP that matches order ID to customer name" |
+| **Chart** | Visualization | "Create a revenue trend line chart by quarter" |
+| **Query** | SQL queries | "Show me all orders over $500 from last month" |
+| **Modify** | Data transformation | "Normalize all currency values to USD" |
+| **Generate** | Sample data | "Generate 500 rows of realistic customer data" |
+| **Analyze** | Qualitative analysis | "What are the key insights in this dataset?" |
+| **EDA** | Exploratory analysis | "Profile this dataset and surface patterns" |
+| **Predict** | TabPFN regression | "Predict next month's sales based on historical data" |
+| **Classify** | TabPFN classification | "Classify these leads as high/medium/low priority" |
+| **Autopilot** | Multi-step automation | "Clean, analyze, and visualize this data" |
+| **Template** | Formatted tables | "Create a project tracker template" |
+| **Public Dataset** | Find data | "Find US Census population data by county" |
+
 ## Selecting a model
 
 Pro and Max plan users can choose which AI model powers their chat. Click the model selector dropdown to switch between available models. See [AI models](/reference/ai-models) for the full list.

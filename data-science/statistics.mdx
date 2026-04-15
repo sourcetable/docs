@@ -1,0 +1,105 @@
+---
+title: Statistical analysis
+description: Run hypothesis tests, regression, and correlation analysis directly in your spreadsheet.
+icon: chart-scatter
+---
+
+Sourcetable provides access to the full SciPy and StatsModels libraries for rigorous statistical analysis. Describe what you need in plain English and the AI writes and executes the correct statistical test.
+
+## Hypothesis testing
+
+### t-tests
+
+```
+"Run an independent t-test comparing conversion rates between group A and group B"
+```
+
+Supported t-test variants:
+
+| Test | Use case |
+|------|----------|
+| Independent samples t-test | Compare means between two groups |
+| Paired samples t-test | Compare before/after measurements |
+| One-sample t-test | Compare a sample mean to a known value |
+| Welch's t-test | Compare groups with unequal variances |
+
+### Chi-square tests
+
+```
+"Run a chi-square test to see if product category and customer segment are independent"
+```
+
+- **Chi-square test of independence** — test association between categorical variables
+- **Chi-square goodness of fit** — test if data follows an expected distribution
+
+### ANOVA
+
+```
+"Run a one-way ANOVA comparing customer satisfaction scores across all 5 regions"
+```
+
+- **One-way ANOVA** — compare means across 3+ groups
+- **Two-way ANOVA** — test two factors and their interaction
+- **Tukey's HSD** — post-hoc pairwise comparisons after significant ANOVA
+
+### Non-parametric tests
+
+| Test | Use case |
+|------|----------|
+| Mann-Whitney U | Compare two independent groups (non-normal data) |
+| Wilcoxon signed-rank | Compare paired observations (non-normal data) |
+| Kruskal-Wallis | Compare 3+ groups (non-normal data) |
+| Kolmogorov-Smirnov | Test if data follows a specific distribution |
+| Shapiro-Wilk | Test for normality |
+
+## Regression analysis
+
+### Linear regression
+
+```
+"Build a linear regression model predicting house price from square footage, bedrooms, and age"
+```
+
+Output includes: coefficients, R-squared, adjusted R-squared, p-values, confidence intervals, residual plots, and VIF for multicollinearity.
+
+### Logistic regression
+
+```
+"Build a logistic regression to predict customer churn from usage metrics"
+```
+
+Output includes: odds ratios, ROC curve, AUC, confusion matrix, classification report.
+
+### Multiple regression
+
+```
+"Run a stepwise regression to find the best predictors of employee retention"
+```
+
+Supports forward selection, backward elimination, and stepwise methods with AIC/BIC criteria.
+
+## Correlation
+
+| Method | When to use |
+|--------|-------------|
+| Pearson | Linear relationship between continuous variables |
+| Spearman | Monotonic relationship, ordinal data, or non-normal distributions |
+| Kendall | Small samples or many tied ranks |
+| Point-biserial | Correlation between binary and continuous variables |
+
+## Effect size measures
+
+The AI automatically reports effect sizes alongside p-values:
+
+- **Cohen's d** — for t-tests (small: 0.2, medium: 0.5, large: 0.8)
+- **Eta-squared** — for ANOVA (proportion of variance explained)
+- **Cramér's V** — for chi-square tests (association strength)
+- **R-squared** — for regression (variance explained)
+
+## Distribution fitting
+
+```
+"Fit the best probability distribution to the response time data"
+```
+
+Tests against normal, log-normal, exponential, gamma, Weibull, and beta distributions. Reports goodness-of-fit statistics (KS test, AIC) for each.
