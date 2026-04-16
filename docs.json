@@ -153,6 +153,12 @@
         "tab": "Use cases",
         "groups": [
           {
+            "group": "Overview",
+            "pages": [
+              "use-cases/overview"
+            ]
+          },
+          {
             "group": "By role",
             "pages": [
               "use-cases/analysts",
