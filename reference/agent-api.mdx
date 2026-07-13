@@ -1,0 +1,174 @@
+---
+title: Agent API
+description: Upload spreadsheets, describe changes in plain English, and download updated files from your own scripts, automation, or integrations.
+icon: robot
+---
+
+The Sourcetable **Agent API** is a thread-scoped spreadsheet agent over REST. Upload or create `.xlsx` files, send natural-language instructions, stream progress, and download results — no Sourcetable UI required.
+
+**Base URL:** `https://api.sourcetable.com/api/v1/agent`
+**Auth:** organization API key in the `X-API-Key` header
+
+## What you can do
+
+- **Modify** an existing Excel file — add columns, formulas, or summary sheets
+- **Generate** a new workbook from a description — budget templates, reports
+- **Analyze** data and get text answers without changing the file
+
+Each conversation runs in a short-lived **session**. You upload files to a session, send one or more instructions, then download results when the agent finishes.
+
+## Authentication
+
+<Steps>
+  <Step title="Create an API key">
+    Log in as the **organization owner** and open your org **Settings**. Click **Create key** and copy the secret immediately — it is shown only once.
+  </Step>
+  <Step title="Send it on every request">
+    Include the key as a header on every call:
+
+    ```http
+    X-API-Key: st_...
+    ```
+  </Step>
+  <Step title="Rotate when needed">
+    Keys expire after **24 months**. Revoke any compromised key from Settings and create a new one.
+  </Step>
+</Steps>
+
+<Warning>
+  The key secret is shown **once** at creation. Store it somewhere safe. Invalid or revoked keys return `401`.
+</Warning>
+
+Agent API usage counts toward the same plan and AI limits as Chat in the Sourcetable app.
+
+## Endpoints
+
+| Action | Method & path |
+|--------|---------------|
+| Create session | `POST /sessions` |
+| Delete session | `DELETE /sessions/{id}` |
+| Prepare file upload | `PUT /sessions/{id}/files/presign` |
+| Confirm upload | `POST /sessions/{id}/files/confirm` |
+| List & download files | `GET /sessions/{id}/files` |
+| Session status | `GET /sessions/{id}/status` |
+| Run agent task | `POST /sessions/{id}/ask` |
+
+A session is an ephemeral agent thread. Creating one returns a `session_id` you pass into every other call.
+
+## Typical workflow
+
+<Steps>
+  <Step title="Create a session">
+    `POST /sessions` returns a `session_id`.
+  </Step>
+  <Step title="Upload files (optional)">
+    Request an upload URL (`presign`), `PUT` the file to it, then `confirm` so the agent can open it.
+  </Step>
+  <Step title="Ask">
+    `POST /sessions/{id}/ask` with your instruction. Progress streams back until the task completes.
+  </Step>
+  <Step title="Download">
+    `GET /sessions/{id}/files` and use the download link on the updated spreadsheet.
+  </Step>
+  <Step title="Delete the session">
+    `DELETE /sessions/{id}` when finished (optional cleanup).
+  </Step>
+</Steps>
+
+## Streaming responses (Ask)
+
+The **Ask** step uses [Server-Sent Events (SSE)](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events). Your client must send `Accept: text/event-stream` and keep the connection open until the agent finishes. Without that header the server returns `406`.
+
+Send a JSON body with your instruction:
+
+```json
+{
+  "prompt": "Add a column that doubles the Revenue values",
+  "mode": "fast"
+}
+```
+
+`mode` controls which AI model tier to use — the same options as in-app Chat: `fast`, `focused`, `premium`, or `code`.
+
+### Event types
+
+| Event | Meaning |
+|-------|---------|
+| `started` | Your request was accepted; includes `session_id`, `rid` |
+| `thinking` | The agent is working (status / tool activity) |
+| `message` | Assistant text (partial or final) |
+| `files_updated` | A file on the session changed; includes download links |
+| `complete` | Finished successfully; includes final `text`, `files`, `message_id` |
+| `error` | Something went wrong (including plan or credit limits); includes `detail` |
+
+The connection stays open until `complete` or `error` (timeout ~600s). Parse blocks separated by blank lines; each block has an `event:` line and a `data:` line (JSON).
+
+## Examples
+
+Replace `YOUR_API_KEY` with your key.
+
+<CodeGroup>
+
+```bash Modify a spreadsheet
+# Create a session
+curl -s -X POST "https://api.sourcetable.com/api/v1/agent/sessions" \
+  -H "X-API-Key: YOUR_API_KEY"
+
+# After upload (see workflow above), ask the agent — use -N to stream:
+curl -N -X POST "https://api.sourcetable.com/api/v1/agent/sessions/SESSION_ID/ask" \
+  -H "X-API-Key: YOUR_API_KEY" \
+  -H "Accept: text/event-stream" \
+  -H "Content-Type: application/json" \
+  -d '{"prompt":"Add a Double Revenue column with 2x Revenue","mode":"fast"}'
+
+# Download the updated file:
+curl -s "https://api.sourcetable.com/api/v1/agent/sessions/SESSION_ID/files" \
+  -H "X-API-Key: YOUR_API_KEY"
+```
+
+```bash Create a new spreadsheet
+curl -s -X POST "https://api.sourcetable.com/api/v1/agent/sessions" \
+  -H "X-API-Key: YOUR_API_KEY"
+
+curl -N -X POST "https://api.sourcetable.com/api/v1/agent/sessions/SESSION_ID/ask" \
+  -H "X-API-Key: YOUR_API_KEY" \
+  -H "Accept: text/event-stream" \
+  -H "Content-Type: application/json" \
+  -d '{"prompt":"Create a 12-month SaaS budget with Revenue, COGS, and OpEx","mode":"fast"}'
+```
+
+```bash Analyze data
+# Upload your file first, then ask a question that expects a text answer:
+curl -N -X POST "https://api.sourcetable.com/api/v1/agent/sessions/SESSION_ID/ask" \
+  -H "X-API-Key: YOUR_API_KEY" \
+  -H "Accept: text/event-stream" \
+  -H "Content-Type: application/json" \
+  -d '{"prompt":"What is the total Revenue? Reply with only the number.","mode":"fast"}'
+```
+
+</CodeGroup>
+
+File upload uses a two-step process: `presign` (get a temporary upload URL), `PUT` your file to that URL, then `confirm` so the agent can open it. Read analysis answers from the `message` and `complete` events in the stream.
+
+## Tips for effective prompts
+
+- Name the sheet and columns you mean (e.g. "on the Sales sheet, column Revenue")
+- State the desired output clearly: new column name, formula logic, or summary format
+- For analysis, ask for a specific format (e.g. "reply with only the number")
+- Use `premium` or `focused` mode for complex, multi-step work
+- One major task per Ask works best; use follow-up Asks in the same session for refinements
+
+## What to expect
+
+| Topic | Behavior |
+|-------|----------|
+| **Output** | Excel-compatible `.xlsx` files with data and formulas |
+| **Formatting** | Complex cell formatting from the desktop app may not be preserved exactly |
+| **Pivot tables** | Native pivot-table objects are not available via the API; the agent builds summary tables instead |
+| **Formulas** | Most Excel formulas are supported; very advanced or rare functions may differ from Excel |
+| **Billing** | Same token and plan limits as in-app Chat; errors use the same codes (e.g. `PAYMENT_REQUIRED`) |
+| **Timing** | Tasks take from a few seconds to several minutes — keep the SSE connection open |
+
+## Need help?
+
+Email [support@sourcetable.com](mailto:support@sourcetable.com) for integration questions or if you hit plan or billing limits on the API.

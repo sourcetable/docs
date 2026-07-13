@@ -193,6 +193,7 @@
           {
             "group": "Reference",
             "pages": [
+              "reference/agent-api",
               "reference/keyboard-shortcuts",
               "reference/ai-models",
               "reference/supported-formulas"
